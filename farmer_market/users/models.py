@@ -41,7 +41,7 @@ class CustomUser(AbstractUser):
 
 # Farmer model
 class Farmer(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='farmer_profile')
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='farmer')
     phone = models.CharField(max_length=15)
     registration_date = models.DateField(auto_now_add=True)
     is_approved = models.BooleanField(default=False)
@@ -52,7 +52,7 @@ class Farmer(models.Model):
 
 # Buyer model
 class Buyer(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='buyer_profile')
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='buyer')
     phone = models.CharField(max_length=15)
     registration_date = models.DateField(auto_now_add=True)
     address = models.CharField(max_length=255)
