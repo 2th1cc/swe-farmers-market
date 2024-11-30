@@ -25,9 +25,9 @@ SECRET_KEY = 'django-insecure-kb)4cpo&oj!_k!it#v&!c6f_vr$)udtw5-qhkv&9k8d%(#l_wl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-
+SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,6 +46,15 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -130,6 +139,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 # Logging configuration
 LOGGING = {
     'version': 1,
@@ -163,6 +176,11 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'django.authentication': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+        'propagate': False,
+        },
         'django.request': {
             'handlers': ['file'],
             'level': 'ERROR',
@@ -175,3 +193,11 @@ LOGGING = {
         },
     },
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Use your email provider's SMTP server
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'lazzat.zhengissova@nu.edu.kz'  # Replace with your email
+EMAIL_HOST_PASSWORD = 'Thrtv18032013!'  # Replace with your email password
+

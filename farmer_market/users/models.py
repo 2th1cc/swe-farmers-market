@@ -1,8 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager, Group, Permission
 from orders.models import DeliveryMethod 
+from django.core.validators import RegexValidator
+
+#baseuser is used to create users and superusers
+#abstractuser allows customization; has all fields and methods of default user
 
 # Custom user manager for farmers and buyers
+#HOW users are created
 class CustomUserManager(BaseUserManager):
     def create_user(self, username, email, password=None, **extra_fields):
         if not email:
@@ -13,16 +18,20 @@ class CustomUserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-# Custom user model for farmers and buyers
 
+# Custom user model for farmers and buyers
+# User model
 class CustomUser(AbstractUser):
     USER_TYPE_CHOICES = (
+        (1, 'admin'),
         (2, 'farmer'),
         (3, 'buyer'),
     )
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=3)
     email = models.EmailField(unique=True)
 
+    USERNAME_FIELD = 'email'  # Use email for authentication instead of username
+    REQUIRED_FIELDS = ['username']
     # Specify related_name to avoid conflicts with the default User model
     groups = models.ManyToManyField(
         'auth.Group', 
@@ -36,11 +45,20 @@ class CustomUser(AbstractUser):
     )
 
     objects = CustomUserManager()
+    
 
 # Farmer model
 class Farmer(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='farmer')
-    phone = models.CharField(max_length=15)
+    phone = models.CharField(
+     max_length=15,
+     validators=[
+         RegexValidator(
+             regex=r'^\+?1?\d{9,15}$',
+             message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."
+            )
+        ]
+    )
     registration_date = models.DateField(auto_now_add=True)
     is_approved = models.BooleanField(default=False)
     rejection_feedback = models.TextField(blank=True, null=True)  # For optional rejection feedback

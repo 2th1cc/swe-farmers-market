@@ -8,3 +8,4 @@ class DeliveryMethodSerializer(serializers.ModelSerializer):
         model = DeliveryMethod
         fields = ['id', 'name', 'description', 'type', 'type_display']
 
+
