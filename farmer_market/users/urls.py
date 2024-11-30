@@ -16,6 +16,6 @@ urlpatterns = [
     path('api/register/buyer/', BuyerRegistrationAPIView.as_view(), name='buyer_register_api'),
 
     # API Dashboards for mobile application access
-    path('api/dashboasrd/farmer/', FarmerDashboardAPIView.as_view(), name='farmer_dashboard_api'),
+    path('api/dashboard/farmer/', FarmerDashboardAPIView.as_view(), name='farmer_dashboard_api'),
     path('api/dashboard/buyer/', BuyerDashboardAPIView.as_view(), name='buyer_dashboard_api'),
 ]
