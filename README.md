@@ -3,7 +3,7 @@
 Nazarbayev University
 SOFTWARE ENGINEERING CSCI 361
 
-**Team Members**:
+## Team Members:
 
 - Lazzat Zhengissova
 - Akmaral Ayazbay
@@ -11,7 +11,7 @@ SOFTWARE ENGINEERING CSCI 361
 - Azimzhan Abdrakhmanov
 - Zeindi Adakhajiyev
 - Yezhan Tugralin
-
+---
 ## Contents
 
 - [Technology Stack](#technology-stack)
@@ -21,12 +21,13 @@ SOFTWARE ENGINEERING CSCI 361
   - [Use Case Diagram](#use-case-diagram)
   - [Activity Diagram](#activity-diagram)
   - [ER Diagram](#er-diagram)
-  - 
 - [Software Details](#software-details)
   - [User Registration and Authentification](#user-registration-and-authentification)
   - [Farmer Interface](#farmer-interface)
   - [Buyer Interface](#buyer-interface)
-  - [Admin Interface](#admin-interface)  
+  - [Admin Interface](#admin-interface)
+
+---
 
 ## Technology Stack
 
@@ -44,10 +45,13 @@ Additional functionality was incorporated using tools like Pillow, which enables
 
 Together, this stack—Django for backend operations, SQLite3 for data storage, and standard frontend tools—creates a system designed to meet the needs of the farming community. The result is a reliable, functional platform that connects farmers and buyers effectively.
 
+---
+
 ## Diagrams
 
 To better understand how a system works and simplify further planning we have created four UML diagrams: Class, Component, Use Case and Activity  diagrams. These diagrams are presented below.
 
+---
 ### Class Diagram
 
 <img src="https://github.com/user-attachments/assets/3ba7b878-a7a3-4274-9739-dd755116fbea" width="650">
@@ -64,16 +68,18 @@ This UML diagram outlines the roles and interactions within the Farmer Market Sy
 
 These interactions and roles ensure smooth functionality, data management, and communication within the platform.
 
+---
 ### Component Diagram
 
 <img src="https://github.com/user-attachments/assets/ab7d396c-f1f6-4c61-a75b-29daec5061c7" width="650">
 
 This Component Diagram provides a high-level view of the Farmer's Market platform and how its various components interact:
-- **Frontend API**: Acts as a bridge between the mobile and web applications and the backend services.
-  - **Mobile Application**: A user-friendly app for consumers and farmers to interact with the platform, accessible on the go.
-  - **Web Application**: A browser-based interface offering similar functionality as the mobile app, designed for desktop users.
-- **API Gateway**: A centralized entry point that routes incoming requests from the frontend apps to the appropriate backend services. It handles security, load balancing, and rate limiting.
-- **Backend Services**: Comprises multiple modular services for specific tasks:
+
+#### **Frontend API**: Acts as a bridge between the mobile and web applications and the backend services.
+- **Mobile Application**: A user-friendly app for consumers and farmers to interact with the platform, accessible on the go.
+- **Web Application**: A browser-based interface offering similar functionality as the mobile app, designed for desktop users.
+#### **API Gateway**: A centralized entry point that routes incoming requests from the frontend apps to the appropriate backend services. It handles security, load balancing, and rate limiting.
+#### **Backend Services**: Comprises multiple modular services for specific tasks:
   1. **Product Management Service**: Manages product listings, interacting with the Product Data database.
   2. **Order Management Service**: Manages the entire order lifecycle, integrates with external payment and logistics services, and stores data in the Order Data database.
   3. **Chat Service**: Facilitates direct communication between buyers and farmers, storing chat history in the Chat Data database.
@@ -81,18 +87,19 @@ This Component Diagram provides a high-level view of the Farmer's Market platfor
   5. **Authentication Service**: Handles user authentication and authorization, working with the User Data database.
   6. **Reporting and Analytics Service**: Generates reports on user behavior, sales data, and platform performance, storing results in the Sales Data database.
   7. **Search Service**: Helps users quickly find products and services based on data.
-- **Databases**: Various databases store data specific to each service:
+#### **Databases**: Various databases store data specific to each service:
   - **Product Data**: Stores product listings.
   - **User Data**: Stores user profiles and authentication details.
   - **Order Data**: Stores information on orders and their status.
   - **Chat Data**: Stores chat histories.
   - **Sales Data**: Stores transactional data for reporting.
-- **External APIs**: Integrates with third-party services:
-  1. **Payment Gateway**: Facilitates secure payment processing between buyers and farmers.
-  2. **Logistics Provider API**: Manages shipping logistics and order tracking, ensuring timely deliveries.
+#### **External APIs**: Integrates with third-party services:
+1. **Payment Gateway**: Facilitates secure payment processing between buyers and farmers.
+2. **Logistics Provider API**: Manages shipping logistics and order tracking, ensuring timely deliveries.
+
 This architecture ensures modularity, scalability, and effective interaction between various services, making the system efficient and user-friendly.
 
-
+---
 ### Use Case Diagram
 
 <img src="https://github.com/user-attachments/assets/f4199348-8ea4-47ae-beb5-ea51f5820cd8" width="650">
@@ -106,6 +113,7 @@ This use case diagram focuses on enhancing the Farmer's Market System, streamlin
 - **Logistics and Delivery**: The logistics provider ensures smooth delivery by managing shipping and tracking product deliveries.
 - **Payment Processing**: The Payment Gateway securely handles transactions between buyers and farmers, ensuring safe and timely payments.
 
+---
 ### Activity Diagram
 
 <img src="https://github.com/user-attachments/assets/b35c36f3-0d7f-4843-815f-a6ab305f966a" width="650">
@@ -120,131 +128,227 @@ The activity diagram illustrates the entire process flow in the Farmer's Market 
 
 Overall, this diagram shows the complete cycle of operations, from registration to order tracking and reporting, providing a seamless experience for all actors involved in the system.
 
-### ER Diagram
-1. **Entities**
-   - **Farmer**: Represents individuals who manage farms and sell products.
-   - **Buyer**: Represents individuals purchasing products.
-   - **Farm**: Represents a physical location where products are cultivated.
-   - **Product**: Represents items sold by farmers (e.g., vegetables, fruits).
-   - **Order**: Represents purchases made by buyers.
-   - **Payment**: Represents the payments made for orders.
-   - **Delivery**: Represents the delivery details for orders.
-   - **OrderDetails**: Captures details of products included in an order.
-2. **Relations**
-   - **Farmer OWNS Farms**: (one-to-many) One Farmer can own multiple Farms, but each Farm belongs to one Farmer.
-   - **Farm PRODUCES Products**: (one-to-many) One Farm can produce multiple Products, but each Product comes from one Farm.
-   - **Buyer PLACES Orders**: (one-to-many) One Buyer can place multiple Orders, but each Order is placed by one Buyer.
-   - **Order INCLUDES Products**: (many-to-many) One Order can include multiple Products, and one Product can be included in multiple Orders.
-   - **Order HAS Payment**: (one-to-one) One Order has exactly one Payment, and each Payment is linked to one Order.
-   - **Order HAS Delivery**: (one-to-one) One Order has exactly one Delivery, and each Delivery is linked to one Order.
-   - **OrderDetails DESCRIBES Products in Orders**: (one-to-many) One Order can have multiple entries in OrderDetails, and each entry is associated with one Product.
-   - **Delivery HANDLES Order**: (one-to-one) Each Delivery handles one Order, and each Order is managed by one Delivery.
-   - **Product APPEARS in OrderDetails**: (one-to-many) One Product can appear in multiple OrderDetails entries, describing its involvement in different Orders.
-   - **Payment SETTLES Orders**: (one-to-one) Each Payment is used to settle exactly one Order.
-3. **Attributes**
-   - **Farmer**: FarmerID (Primary Key), Name, Email, Phone, RegistrationDate
-   - **Buyer**: BuyerID (Primary Key), Name, Email, Phone, RegistrationDate, Address
-   - **Farm**: FarmID (Primary Key), Name, Location, Size, SoilType, EstablishedDate, FarmerID (Foreign Key)
-   - **Product**: ProductID (Primary Key), Name, Category, Price, StockQuantity, Unit, FarmID (Foreign Key)
-   - **Order**: OrderID (Primary Key), OrderDate, TotalAmount, OrderStatus, PaymentMethod, BuyerID (Foreign Key)
-   - **Payment**: PaymentID (Primary Key), PaymentDate, Amount, PaymentMethod, PaymentStatus, OrderID (Foreign Key)
-   - **Delivery**: DeliveryID (Primary Key), DeliveryDate, DeliveryStatus, CourierService, DeliveryAddress, OrderID (Foreign Key)
-   - **OrderDetails**: OrderID (Foreign Key, Primary Key), ProductID (Foreign Key, Primary Key), Quantity, Price
-4. **Cardinality**
-   - Farmer to Farm: 1:M
-   - Farm to Product: 1:M
-   - Buyer to Order: 1:M
-   - Order to Payment: 1:1
-   - Order to Delivery: 1:1
-   - Order to Product: M:N (handled through OrderDetails)
-   - Order to OrderDetails: 1:M
-   - Product to OrderDetails: 1:M
-5. **ERD**
+---
+### ER Diagram 
+
 <img src="https://github.com/user-attachments/assets/d84c3cdd-6589-4c26-ad01-15254f2cae93" width="650">
 
-6. **Database using RDBMS**
+
+The diagrams above really helped us designing the whole application,
+
+#### Entities and Attributes
+
+##### 1.1. `auth_user`
+**Attributes:**
+- `id` (Primary Key)
+- `password` (hashed password)
+- `last_login` (datetime of the last login)
+- `is_superuser` (boolean flag)
+- `username` (unique, username of the user)
+- `first_name`, `last_name` (name fields)
+- `email` (email address)
+- `is_staff`, `is_active` (boolean flags for permissions)
+- `date_joined` (registration date)
+
+**Purpose:** Represents standard Django users.
+
+**Relationships:**
+- Links to groups (`auth_user_groups`).
+- Links to permissions (`auth_user_user_permissions`).
+
+##### 1.2. `users_customuser`
+**Attributes:**
+- Similar to `auth_user` but adds:
+  - `user_type` (integer, indicating the type of user: Farmer or Buyer)
+
+**Relationships:**
+- Extends `auth_user` functionality for custom roles (Farmer and Buyer).
+- Links to groups (`users_customuser_groups`) and permissions (`users_customuser_user_permissions`).
+
+##### 1.3. `users_farmer`
+**Attributes:**
+- `id` (Primary Key)
+- `phone`, `registration_date`
+- `is_approved` (boolean: farmer approval status)
+- `rejection_feedback` (text: reasons if not approved)
+- `farm_name`, `farm_location`
+- `farm_size` (optional, size of the farm)
+- `soil_type` (integer: a type representing soil category)
+
+**Relationships:**
+- Links to a single user in `users_customuser` (`user_id`, 1-to-1).
+- Represents additional attributes specific to farmers.
+
+##### 1.4. `users_buyer`
+**Attributes:**
+- `id` (Primary Key)
+- `phone`, `registration_date`, `address`
+- `default_delivery_method_id` (optional, references delivery methods)
+
+**Relationships:**
+- Links to a single user in `users_customuser` (`user_id`, 1-to-1).
+- Represents additional attributes specific to buyers.
+
+
+##### 1.5. `products_product`
+**Attributes:**
+- `id` (Primary Key)
+- `name`, `category`, `description`
+- `price` (decimal), `quantity` (integer)
+- `is_out_of_stock` (boolean: availability status)
+
+**Relationships:**
+- Linked to a user (likely a Farmer) via `user_id` (1-to-Many).
+- Products can have multiple images (`products_productimage`).
+- Products can generate notifications (`products_lowstocknotification`).
+
+
+##### 1.6. `products_productimage`
+**Attributes:**
+- `id` (Primary Key)
+- `image` (file path)
+
+**Relationships:**
+- Linked to a product (`product_id`, 1-to-Many).
+
+
+##### 1.7. `products_lowstocknotification`
+**Attributes:**
+- `id` (Primary Key)
+- `created_at` (timestamp), `is_read` (boolean)
+
+**Relationships:**
+- Linked to a Farmer (`farmer_id`, 1-to-Many).
+- Linked to a product (`product_id`, 1-to-Many).
+
+
+##### 1.8. `orders_deliverymethod`
+**Attributes:**
+- `id` (Primary Key)
+- `name`, `description`, `type`
+
+**Relationships:**
+- Linked optionally to buyers as their default delivery method.
+
+
+##### 1.9. `django_admin_log`, `auth_*`, and `django_*` tables
+**Purpose:** Support Django’s admin framework, authentication, and logging.
+
+**Attributes:**
+- Standard fields for logs, permissions, and sessions.
+
+
+
+#### Relationships and Cardinalities
+
+##### 2.1. User Relationships
+
+###### `auth_user` and `auth_user_groups`
+- **Cardinality:** Many-to-Many (users can belong to multiple groups).
+- **Implemented via:** `auth_user_groups` table.
+
+###### `auth_user` and `auth_user_user_permissions`
+- **Cardinality:** Many-to-Many (users can have multiple permissions).
+- **Implemented via:** `auth_user_user_permissions` table.
+
+###### `users_customuser` and `users_farmer` / `users_buyer`
+- **Cardinality:** One-to-One (a user can only be a Farmer or Buyer).
+- **Ensured via:** `user_id` foreign key.
+
+
+##### 2.2. Product Relationships
+
+###### `users_customuser` (Farmers) and `products_product`
+- **Cardinality:** One-to-Many (a Farmer can sell multiple products).
+
+###### `products_product` and `products_productimage`
+- **Cardinality:** One-to-Many (a product can have multiple images).
+
+###### `products_product` and `products_lowstocknotification`
+- **Cardinality:** One-to-Many (a product can trigger multiple notifications).
+
+##### 2.3. Order Relationships
+
+###### `users_buyer` and `orders_deliverymethod`
+- **Cardinality:** One-to-One or One-to-Many (a Buyer can have a default delivery method).
+
+
+#### Notable Constraints
+
+##### 3.1. Uniqueness Constraints
+- Users (`username`, `email` in `auth_user` and `users_customuser`).
+- Groups and permissions (unique indices in `auth_group`, `auth_permission`).
+
+##### 3.2. Foreign Key Constraints
+- Used extensively to maintain referential integrity between related tables (e.g., products, farmers, buyers).
+
+
+
+#### **SQLite3 Schema**
+
+This schema reflects a Django-based system for managing farmers, buyers, and products in a farmer market system. Each role (Farmer or Buyer) extends the base users_customuser and interacts with products, orders, and delivery methods. The use of Many-to-Many relationships for permissions and groups enhances flexibility for user management.
 
 ```sql
-CREATE TABLE Farmer (
-FarmerID INT PRIMARY KEY,
-Name VARCHAR(100) NOT NULL,
-Email VARCHAR(100) UNIQUE NOT NULL,
-Phone VARCHAR(15) NOT NULL,
-RegistrationDate DATE NOT NULL
-);
-CREATE TABLE Buyer (
-BuyerID INT PRIMARY KEY,
-Name VARCHAR(100) NOT NULL,
-Email VARCHAR(100) UNIQUE NOT NULL,
-Phone VARCHAR(15) NOT NULL,
-RegistrationDate DATE NOT NULL,
-Address VARCHAR(255) NOT NULL
-);
-CREATE TABLE Farm (
-FarmID INT PRIMARY KEY,
-Name VARCHAR(100) NOT NULL,
-Location VARCHAR(255) NOT NULL,
-Size DECIMAL(10, 2),
-SoilType VARCHAR(50),
-EstablishedDate DATE,
-FarmerID INT NOT NULL,
-FOREIGN KEY (FarmerID) REFERENCES Farmer(FarmerID)
-);
-CREATE TABLE Product (
-ProductID INT PRIMARY KEY,
-Name VARCHAR(100) NOT NULL,
-Category VARCHAR(50) NOT NULL,
-Price DECIMAL(10, 2) NOT NULL,
-StockQuantity INT NOT NULL,
-Unit VARCHAR(20) NOT NULL,
-FarmID INT NOT NULL,
-FOREIGN KEY (FarmID) REFERENCES Farm(FarmID)
-);
-CREATE TABLE "Order" (
-OrderID INT PRIMARY KEY,
-OrderDate DATE NOT NULL,
-TotalAmount DECIMAL(10, 2) NOT NULL,
-OrderStatus VARCHAR(50) NOT NULL,
-PaymentMethod VARCHAR(50),
-BuyerID INT NOT NULL,
-FOREIGN KEY (BuyerID) REFERENCES Buyer(BuyerID)
-);
-CREATE TABLE Payment (
-Unset
-PaymentID INT PRIMARY KEY,
-PaymentDate DATE NOT NULL,
-Amount DECIMAL(10, 2) NOT NULL,
-PaymentMethod VARCHAR(50) NOT NULL,
-PaymentStatus VARCHAR(50) NOT NULL,
-OrderID INT NOT NULL,
-FOREIGN KEY (OrderID) REFERENCES "Order"(OrderID)
-);
-CREATE TABLE Delivery (
-DeliveryID INT PRIMARY KEY,
-DeliveryDate DATE NOT NULL,
-DeliveryStatus VARCHAR(50) NOT NULL,
-CourierService VARCHAR(100) NOT NULL,
-DeliveryAddress VARCHAR(255) NOT NULL,
-OrderID INT NOT NULL,
-FOREIGN KEY (OrderID) REFERENCES "Order"(OrderID)
-);
-CREATE TABLE OrderDetails (
-OrderID INT NOT NULL,
-ProductID INT NOT NULL,
-Quantity INT NOT NULL,
-Price DECIMAL(10, 2) NOT NULL,
-PRIMARY KEY (OrderID, ProductID),
-FOREIGN KEY (OrderID) REFERENCES "Order"(OrderID),
-FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
-);
+CREATE TABLE IF NOT EXISTS "django_migrations" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app" varchar(255) NOT NULL, "name" varchar(255) NOT NULL, "applied" datetime NOT NULL);
+CREATE TABLE sqlite_sequence(name,seq);
+CREATE TABLE IF NOT EXISTS "auth_group_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "group_id" integer NOT NULL REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED, "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED);
+CREATE TABLE IF NOT EXISTS "auth_user_groups" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "group_id" integer NOT NULL REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED);
+CREATE TABLE IF NOT EXISTS "auth_user_user_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED);
+CREATE UNIQUE INDEX "auth_group_permissions_group_id_permission_id_0cd325b0_uniq" ON "auth_group_permissions" ("group_id", "permission_id");
+CREATE INDEX "auth_group_permissions_group_id_b120cbf9" ON "auth_group_permissions" ("group_id");
+CREATE INDEX "auth_group_permissions_permission_id_84c5c92e" ON "auth_group_permissions" ("permission_id");
+CREATE UNIQUE INDEX "auth_user_groups_user_id_group_id_94350c0c_uniq" ON "auth_user_groups" ("user_id", "group_id");
+CREATE INDEX "auth_user_groups_user_id_6a12ed8b" ON "auth_user_groups" ("user_id");
+CREATE INDEX "auth_user_groups_group_id_97559544" ON "auth_user_groups" ("group_id");
+CREATE UNIQUE INDEX "auth_user_user_permissions_user_id_permission_id_14a6b632_uniq" ON "auth_user_user_permissions" ("user_id", "permission_id");
+CREATE INDEX "auth_user_user_permissions_user_id_a95ead1b" ON "auth_user_user_permissions" ("user_id");
+CREATE INDEX "auth_user_user_permissions_permission_id_1fbb5f2c" ON "auth_user_user_permissions" ("permission_id");
+CREATE TABLE IF NOT EXISTS "django_admin_log" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "object_id" text NULL, "object_repr" varchar(200) NOT NULL, "action_flag" smallint unsigned NOT NULL CHECK ("action_flag" >= 0), "change_message" text NOT NULL, "content_type_id" integer NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "action_time" datetime NOT NULL);
+CREATE INDEX "django_admin_log_content_type_id_c4bce8eb" ON "django_admin_log" ("content_type_id");
+CREATE INDEX "django_admin_log_user_id_c564eba6" ON "django_admin_log" ("user_id");
+CREATE TABLE IF NOT EXISTS "django_content_type" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "app_label" varchar(100) NOT NULL, "model" varchar(100) NOT NULL);
+CREATE UNIQUE INDEX "django_content_type_app_label_model_76bd3d3b_uniq" ON "django_content_type" ("app_label", "model");
+CREATE TABLE IF NOT EXISTS "auth_permission" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "content_type_id" integer NOT NULL REFERENCES "django_content_type" ("id") DEFERRABLE INITIALLY DEFERRED, "codename" varchar(100) NOT NULL, "name" varchar(255) NOT NULL);
+CREATE UNIQUE INDEX "auth_permission_content_type_id_codename_01ab375a_uniq" ON "auth_permission" ("content_type_id", "codename");
+CREATE INDEX "auth_permission_content_type_id_2f476e4b" ON "auth_permission" ("content_type_id");
+CREATE TABLE IF NOT EXISTS "auth_group" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(150) NOT NULL UNIQUE);
+CREATE TABLE IF NOT EXISTS "auth_user" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NULL, "is_superuser" bool NOT NULL, "username" varchar(150) NOT NULL UNIQUE, "last_name" varchar(150) NOT NULL, "email" varchar(254) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "first_name" varchar(150) NOT NULL);
+CREATE TABLE IF NOT EXISTS "django_session" ("session_key" varchar(40) NOT NULL PRIMARY KEY, "session_data" text NOT NULL, "expire_date" datetime NOT NULL);
+CREATE INDEX "django_session_expire_date_a5c62663" ON "django_session" ("expire_date");
+CREATE TABLE IF NOT EXISTS "farmer_app_test" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "one" varchar(255) NOT NULL);
+CREATE TABLE IF NOT EXISTS "orders_deliverymethod" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(50) NOT NULL UNIQUE, "description" text NULL, "type" varchar(20) NOT NULL);
+CREATE TABLE IF NOT EXISTS "products_product" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(255) NOT NULL, "category" varchar(10) NOT NULL, "description" text NOT NULL, "price" decimal NOT NULL, "quantity" integer NOT NULL, "is_out_of_stock" bool NOT NULL, "user_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED);
+CREATE TABLE IF NOT EXISTS "products_lowstocknotification" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "created_at" datetime NOT NULL, "is_read" bool NOT NULL, "farmer_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "product_id" bigint NOT NULL REFERENCES "products_product" ("id") DEFERRABLE INITIALLY DEFERRED);
+CREATE TABLE IF NOT EXISTS "products_productimage" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "image" varchar(100) NOT NULL, "product_id" bigint NOT NULL REFERENCES "products_product" ("id") DEFERRABLE INITIALLY DEFERRED);
+CREATE INDEX "products_product_user_id_e04f062e" ON "products_product" ("user_id");
+CREATE INDEX "products_lowstocknotification_farmer_id_aac91bc6" ON "products_lowstocknotification" ("farmer_id");
+CREATE INDEX "products_lowstocknotification_product_id_850eec11" ON "products_lowstocknotification" ("product_id");
+CREATE INDEX "products_productimage_product_id_e747596a" ON "products_productimage" ("product_id");
+CREATE TABLE IF NOT EXISTS "django_site" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "name" varchar(50) NOT NULL, "domain" varchar(100) NOT NULL UNIQUE);
+CREATE TABLE IF NOT EXISTS "users_customuser" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "password" varchar(128) NOT NULL, "last_login" datetime NULL, "is_superuser" bool NOT NULL, "username" varchar(150) NOT NULL UNIQUE, "first_name" varchar(150) NOT NULL, "last_name" varchar(150) NOT NULL, "is_staff" bool NOT NULL, "is_active" bool NOT NULL, "date_joined" datetime NOT NULL, "user_type" smallint unsigned NOT NULL CHECK ("user_type" >= 0), "email" varchar(254) NOT NULL UNIQUE);
+CREATE TABLE IF NOT EXISTS "users_customuser_groups" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "customuser_id" bigint NOT NULL REFERENCES "users_customuser" ("id") DEFERRABLE INITIALLY DEFERRED, "group_id" integer NOT NULL REFERENCES "auth_group" ("id") DEFERRABLE INITIALLY DEFERRED);
+CREATE TABLE IF NOT EXISTS "users_customuser_user_permissions" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "customuser_id" bigint NOT NULL REFERENCES "users_customuser" ("id") DEFERRABLE INITIALLY DEFERRED, "permission_id" integer NOT NULL REFERENCES "auth_permission" ("id") DEFERRABLE INITIALLY DEFERRED);
+CREATE TABLE IF NOT EXISTS "users_buyer" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "phone" varchar(15) NOT NULL, "registration_date" date NOT NULL, "address" varchar(255) NOT NULL, "default_delivery_method_id" bigint NULL REFERENCES "orders_deliverymethod" ("id") DEFERRABLE INITIALLY DEFERRED, "user_id" bigint NOT NULL UNIQUE REFERENCES "users_customuser" ("id") DEFERRABLE INITIALLY DEFERRED);
+CREATE TABLE IF NOT EXISTS "users_farmer" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "phone" varchar(15) NOT NULL, "registration_date" date NOT NULL, "is_approved" bool NOT NULL, "rejection_feedback" text NULL, "farm_name" varchar(255) NULL, "farm_location" varchar(255) NULL, "farm_size" varchar(100) NULL, "soil_type" integer unsigned NOT NULL CHECK ("soil_type" >= 0), "user_id" bigint NOT NULL UNIQUE REFERENCES "users_customuser" ("id") DEFERRABLE INITIALLY DEFERRED);
+CREATE UNIQUE INDEX "users_customuser_groups_customuser_id_group_id_76b619e3_uniq" ON "users_customuser_groups" ("customuser_id", "group_id");
+CREATE INDEX "users_customuser_groups_customuser_id_958147bf" ON "users_customuser_groups" ("customuser_id");
+CREATE INDEX "users_customuser_groups_group_id_01390b14" ON "users_customuser_groups" ("group_id");
+CREATE UNIQUE INDEX "users_customuser_user_permissions_customuser_id_permission_id_7a7debf6_uniq" ON "users_customuser_user_permissions" ("customuser_id", "permission_id");
+CREATE INDEX "users_customuser_user_permissions_customuser_id_5771478b" ON "users_customuser_user_permissions" ("customuser_id");
+CREATE INDEX "users_customuser_user_permissions_permission_id_baaa2f74" ON "users_customuser_user_permissions" ("permission_id");
+CREATE INDEX "users_buyer_default_delivery_method_id_623a5395" ON "users_buyer" ("default_delivery_method_id");
+CREATE TABLE IF NOT EXISTS "authtoken_token" ("key" varchar(40) NOT NULL PRIMARY KEY, "created" datetime NOT NULL, "user_id" integer NOT NULL UNIQUE REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED);
 ```
 
 
 
 
 
-## Software Details
 
+---
+
+## Software Details
+  
 ### User Registration and Authentification
 ### Farmer Interface
 ### Buyer Interface
