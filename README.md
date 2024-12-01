@@ -520,6 +520,62 @@ The database testing confirmed a functional design for managing users, farmers, 
 ## Software Details
   
 ### User Registration and Authentification
+Testing API Endpoints
+#### Farmer Registration  
+1. **Success**  
+   <img src="https://github.com/user-attachments/assets/3954cc3e-9f1a-45ce-9d32-f57e4e7e08ae" width="400">  
+
+2. **No Email**  
+   <img src="https://github.com/user-attachments/assets/15a01dda-a50b-47d2-822a-67e38a637955" width="400">  
+
+3. **User Already Exists**  
+   <img src="https://github.com/user-attachments/assets/c4caf76a-46c9-4d6f-a31b-a8c0e66f22b6" width="400">  
+
+4. **Invalid Soil Type**  
+   <img src="https://github.com/user-attachments/assets/98836330-5499-480e-908e-333267626a49" width="400">  
+
+5. **Empty Optional Fields**  
+   <img src="https://github.com/user-attachments/assets/a29800c6-37d1-405e-a4e4-15c7988a207f" width="400">  
+
+6. **Invalid Email**  
+   <img src="https://github.com/user-attachments/assets/d15d801a-ca4d-473d-9d40-4d856b265bd1" width="400">  
+
+
+#### Buyer Registration  
+1. **Success**  
+   <img src="https://github.com/user-attachments/assets/2faa3aae-bc36-4f91-ae92-422520421e30" width="400">  
+
+2. **Empty Email**  
+   <img src="https://github.com/user-attachments/assets/5895fd1d-a08c-44c4-ac95-d28a241dca94" width="400">  
+
+3. **Invalid Email Format**  
+   <img src="https://github.com/user-attachments/assets/cc0912fe-60cc-43b4-9844-d5b88d0a770d" width="400">  
+
+4. **Missing Username**  
+   <img src="https://github.com/user-attachments/assets/a5d1a6e7-a40b-4795-9673-94428f3281e4" width="400">  
+
+5. **All Fields Missing**  
+   <img src="https://github.com/user-attachments/assets/b8b535c6-4ec8-4a5f-92de-e2d6d854fe70" width="400">  
+
+#### Login  
+1. **Success**  
+   <img src="https://github.com/user-attachments/assets/ba11d8ed-e5c3-474e-bd01-560dad16d542" width="400">  
+
+2. **Incorrect Password**  
+   <img src="https://github.com/user-attachments/assets/8b7b9d49-31a6-4e82-8103-f3d7ac993c5a" width="400">  
+
+3. **Non-existing User**  
+   <img src="https://github.com/user-attachments/assets/4173f3a6-c229-485a-907e-d6064da27f03" width="400">  
+
+4. **Empty Email**  
+   <img src="https://github.com/user-attachments/assets/f80ff7de-41a3-4fae-bea8-875520e6a8bc" width="400">  
+
+5. **Empty Password**  
+   <img src="https://github.com/user-attachments/assets/62867e9b-23f8-4af0-af68-5fa8a9f12b36" width="400">  
+
+
+
+
 ### Farmer Interface
 ### Buyer Interface
 ### Admin Interface
