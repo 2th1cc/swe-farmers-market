@@ -100,11 +100,28 @@ This architecture ensures modularity, scalability, and effective interaction bet
 
 <img src="https://github.com/user-attachments/assets/f4199348-8ea4-47ae-beb5-ea51f5820cd8" width="650">
 
+This use case diagram focuses on enhancing the Farmer's Market System, streamlining interactions and responsibilities between users:
+
+- **Farmer Product Management**: Farmers can list, update, and manage their products, track inventory, and generate sales reports.
+- **Buyer Interaction**: Buyers can register, log in, manage profiles, negotiate prices, and track orders.
+- **Order Tracking**: Both farmers and buyers can track the status of orders, ensuring timely delivery and order fulfillment.
+- **Admin Oversight**: Admins are responsible for monitoring system functionality, managing users, and overseeing platform performance.
+- **Logistics and Delivery**: The logistics provider ensures smooth delivery by managing shipping and tracking product deliveries.
+- **Payment Processing**: The Payment Gateway securely handles transactions between buyers and farmers, ensuring safe and timely payments.
+
 ### Activity Diagram
 
 <img src="https://github.com/user-attachments/assets/b35c36f3-0d7f-4843-815f-a6ab305f966a" width="650">
 
+The activity diagram illustrates the entire process flow in the Farmer's Market System, detailing the tasks performed by each entity:
 
+- User: The user initiates the process by registering and verifying their account. Once verified, they log in, receive notifications, and interact with the platform through the dashboard. If needed, their account may be temporarily locked after multiple failed login attempts.
+- Farmer: The farmer manages their profile and product listings after logging in. They update product details, inventory, and generate reports on sales and offers. The farmer’s activities revolve around product management and interacting with potential buyers.
+- Buyer: The buyer searches for products, adds them to their cart, and proceeds with payment. Once payment is processed, they can track their order status and generate offers or reports related to their buying activities.
+- System: The system interacts with multiple databases, validating data and confirming actions. It ensures smooth operation by sending notifications, confirming actions like orders and trades, and keeping all entities informed.
+- Error Handling: The system checks for validation and error recovery throughout the process, ensuring that login and verification steps are correctly handled.
+
+Overall, this diagram shows the complete cycle of operations, from registration to order tracking and reporting, providing a seamless experience for all actors involved in the system.
 
 ## Software Details
 
