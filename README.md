@@ -52,10 +52,59 @@ Together, this stack—Django for backend operations, SQLite3 for data storage, 
 To better understand how a system works and simplify further planning we have created four UML diagrams: Class, Component, Use Case and Activity  diagrams. These diagrams are presented below.
 
 ### Class Diagram
+
+<img src="https://github.com/user-attachments/assets/3ba7b878-a7a3-4274-9739-dd755116fbea" width="650">
+
+This UML diagram outlines the roles and interactions within the Farmer Market System:
+
+- **Users**: All users, including Buyers, Farmers, and Administrators, have access to basic registration, login, and profile management.
+- **Buyers**: Buyers can browse products, add items to their cart, place and track orders, and view their purchase history. They can also communicate directly with Farmers via the chat module.
+- **Farmers**: Farmers manage product listings, inventory, and sales. They fulfill orders placed by Buyers and update order statuses. Farmers also generate reports to track sales and inventory.
+- **Orders**: Orders represent transactions between Buyers and Farmers, linking products and purchases, including delivery details and order status.
+- **Reports**: Both Buyers and Farmers can generate reports, including sales for Farmers and purchase history for Buyers.
+- **Administrators**: Administrators manage users and global system settings, ensuring the platform operates smoothly and overseeing user activities.
+- **Chat**: The chat feature enables direct communication between Buyers and Farmers, facilitating questions and discussions about products.
+
+These interactions and roles ensure smooth functionality, data management, and communication within the platform.
+
 ### Component Diagram
+
+<img src="https://github.com/user-attachments/assets/ab7d396c-f1f6-4c61-a75b-29daec5061c7" width="650">
+
+This Component Diagram provides a high-level view of the Farmer's Market platform and how its various components interact:
+- **Frontend API**: Acts as a bridge between the mobile and web applications and the backend services.
+  - **Mobile Application**: A user-friendly app for consumers and farmers to interact with the platform, accessible on the go.
+  - **Web Application**: A browser-based interface offering similar functionality as the mobile app, designed for desktop users.
+- **API Gateway**: A centralized entry point that routes incoming requests from the frontend apps to the appropriate backend services. It handles security, load balancing, and rate limiting.
+- **Backend Services**: Comprises multiple modular services for specific tasks:
+  1. **Product Management Service**: Manages product listings, interacting with the Product Data database.
+  2. **Order Management Service**: Manages the entire order lifecycle, integrates with external payment and logistics services, and stores data in the Order Data database.
+  3. **Chat Service**: Facilitates direct communication between buyers and farmers, storing chat history in the Chat Data database.
+  4. **Notification Service**: Sends real-time notifications to users about order updates or new messages.
+  5. **Authentication Service**: Handles user authentication and authorization, working with the User Data database.
+  6. **Reporting and Analytics Service**: Generates reports on user behavior, sales data, and platform performance, storing results in the Sales Data database.
+  7. **Search Service**: Helps users quickly find products and services based on data.
+- **Databases**: Various databases store data specific to each service:
+  - **Product Data**: Stores product listings.
+  - **User Data**: Stores user profiles and authentication details.
+  - **Order Data**: Stores information on orders and their status.
+  - **Chat Data**: Stores chat histories.
+  - **Sales Data**: Stores transactional data for reporting.
+- **External APIs**: Integrates with third-party services:
+  1. **Payment Gateway**: Facilitates secure payment processing between buyers and farmers.
+  2. **Logistics Provider API**: Manages shipping logistics and order tracking, ensuring timely deliveries.
+This architecture ensures modularity, scalability, and effective interaction between various services, making the system efficient and user-friendly.
+
+
 ### Use Case Diagram
+
+<img src="https://github.com/user-attachments/assets/f4199348-8ea4-47ae-beb5-ea51f5820cd8" width="650">
+
 ### Activity Diagram
-  
+
+<img src="https://github.com/user-attachments/assets/b35c36f3-0d7f-4843-815f-a6ab305f966a" width="650">
+
+
 
 ## Software Details
 
