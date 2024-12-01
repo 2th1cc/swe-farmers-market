@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/981ddc54-6a62-406e-b0aa-bda6ef23e06e)![image](https://github.com/user-attachments/assets/78127263-1e36-473a-a29e-f2487c542c9e)![image](https://github.com/user-attachments/assets/2e1ae246-a592-4acd-8725-6d5ca29f8d60)# Farmer Market System
+Farmer Market System
 
 Nazarbayev University
 SOFTWARE ENGINEERING CSCI 361
