@@ -136,6 +136,9 @@ Overall, this diagram shows the complete cycle of operations, from registration 
 
 
 The diagrams helped guide the design and implementation of the database and system by providing a clear, visual representation of the relationships, attributes, and structure.
+
+---
+
 ### Database
 
 #### Entities and Attributes
@@ -239,8 +242,6 @@ The diagrams helped guide the design and implementation of the database and syst
 **Attributes:**
 - Standard fields for logs, permissions, and sessions.
 
-
-
 #### Relationships and Cardinalities
 
 ##### 2.1. User Relationships
@@ -284,7 +285,7 @@ The diagrams helped guide the design and implementation of the database and syst
 ##### 3.2. Foreign Key Constraints
 - Used extensively to maintain referential integrity between related tables (e.g., products, farmers, buyers).
 
-
+---
 
 #### **SQLite3 Schema**
 
@@ -410,6 +411,8 @@ VALUES
 
 As you can see by the pictures all of the insert queries work properly.
 
+---
+
 #### Queries to Test the Schema
 1. Retrieve all farmers and their farm details:
 ```sql
@@ -520,7 +523,10 @@ The database testing confirmed a functional design for managing users, farmers, 
 ## Software Details
   
 ### User Registration and Authentification
+
 Testing API Endpoints
+
+
 #### Farmer Registration  
 1. **Success**  
    <img src="https://github.com/user-attachments/assets/3954cc3e-9f1a-45ce-9d32-f57e4e7e08ae" width="400">  
@@ -540,6 +546,7 @@ Testing API Endpoints
 6. **Invalid Email**  
    <img src="https://github.com/user-attachments/assets/d15d801a-ca4d-473d-9d40-4d856b265bd1" width="400">  
 
+---
 
 #### Buyer Registration  
 1. **Success**  
@@ -556,6 +563,8 @@ Testing API Endpoints
 
 5. **All Fields Missing**  
    <img src="https://github.com/user-attachments/assets/b8b535c6-4ec8-4a5f-92de-e2d6d854fe70" width="400">  
+
+---
 
 #### Login  
 1. **Success**  
@@ -574,7 +583,7 @@ Testing API Endpoints
    <img src="https://github.com/user-attachments/assets/62867e9b-23f8-4af0-af68-5fa8a9f12b36" width="400">  
 
 
-
+---
 
 ### Farmer Interface
 ### Buyer Interface
