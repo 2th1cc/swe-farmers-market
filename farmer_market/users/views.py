@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Buyer, Farmer, CustomUser, DeliveryMethod
+from .models import Buyer, Farmer, CustomUser, DeliveryMethod, Crop
 from .serializers import BuyerSerializer,ImportantTokenSerializer, FarmerSerializer, UserSerializer  # Serializers to convert model data to JSON
 from django.core.mail import send_mail
 from rest_framework.permissions import IsAuthenticated
@@ -29,10 +29,24 @@ class LoginAPIView(TokenObtainPairView):
         refresh_token = serializer.validated_data["refresh"]
         access_token = serializer.validated_data["access"]
 
-        response = Response({"success": "Login successful", "access": access_token}, status=status.HTTP_200_OK)
+        user_data = {
+            "user_id": user.id,
+            "email": user.email,
+            "username": user.username,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "role": "Farmer" if user.user_type == 2 else "Buyer",
+        }
 
-        return response
-
+        return Response(
+            {
+                "message": "Login successful",
+                "access_token": access_token,
+                "refresh_token": refresh_token,
+                "user": user_data,
+            },
+            status=status.HTTP_200_OK,
+        )
 # API view for registering a new farmer
 class FarmerRegistrationAPIView(APIView):
     def post(self, request):
@@ -48,6 +62,8 @@ class FarmerRegistrationAPIView(APIView):
 
                 # Create the user with user_type indicating they are a farmer
                 user = user_serializer.save(user_type=2)
+                user.first_name = data['first_name']
+                user.last_name = data['last_name']
                 user.is_staff = False  # Explicitly ensure no admin privileges
                 user.is_superuser = False
                 user.save()
@@ -57,29 +73,41 @@ class FarmerRegistrationAPIView(APIView):
                 farm_name = request.data.get('farm_name')
                 farm_location = request.data.get('farm_location')
                 farm_size = request.data.get('farm_size')
+                farm_description=data.get('farm_description'),
+                crops_data = data.get('crops_grown', [])
                 soil_type = request.data.get('soil_type', 1)
 
                 valid_soil_types = [choice[0] for choice in Farmer._meta.get_field('soil_type').choices]
+
+                # Use the first valid soil type as the default if not provided
+                if not soil_type:
+                    soil_type = valid_soil_types[0]
                 if soil_type not in valid_soil_types:
                     raise ValueError(f"Invalid soil type. Valid values are: {valid_soil_types}")
-
+                
                 # Validate required fields
-                if not phone:
-                    raise ValueError("Phone is required.")
-                if not farm_name:
-                    raise ValueError("Farm name is required.")
+                required_fields = ['email', 'password', 'first_name', 'last_name', 'farm_name']
+                for field in required_fields:
+                    if field not in data or not data[field]:
+                        return Response({'error': f'Missing required field: {field}'}, status=status.HTTP_400_BAD_REQUEST)
 
                 # Create farmer profile with validated fields
-                Farmer.objects.create(
+                farmer = Farmer.objects.create(
                     user=user,
                     phone=phone,
                     farm_name=farm_name,
                     farm_location=farm_location,
+                    farm_description=farm_description,
                     farm_size=farm_size,
                     is_approved=False,  # New farmers are not approved by default
                     rejection_feedback=''  # Initialize with an empty string
                 )
+                crops = []
+                for crop_name in crops_data:
+                    crop, created = Crop.objects.get_or_create(name=crop_name)
+                    crops.append(crop)
 
+                farmer.crops_grown.set(crops)
                 # Send a welcome email for registration
                 self._send_registration_email(user)
 
@@ -108,25 +136,28 @@ class BuyerRegistrationAPIView(APIView):
                 data = request.data
                 data['user_type'] = 3 
                 # Deserialize incoming user data using the UserSerializer
+                required_fields = ['email', 'password', 'first_name', 'last_name']
+                for field in required_fields:
+                    if field not in data or not data[field]:
+                        return Response({'error': f'Missing required field: {field}'}, status=status.HTTP_400_BAD_REQUEST)
+                
                 user_serializer = UserSerializer(data=data)
-
-                # Check if user data is valid
                 if not user_serializer.is_valid():
-                    print("Received data:", request.data)
-                    print("Validation errors:", user_serializer.errors)
                     return Response(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
                 # Create the user with user_type indicating they are a buyer
+                
                 user = user_serializer.save(user_type=3)
+                user.first_name = data['first_name']
+                user.last_name = data['last_name']
                 user.is_staff = False  # Explicitly ensure no admin privileges
                 user.is_superuser = False
                 user.save()
-                # Extract additional fields for Buyer profile
-                phone = request.data.get('phone')
-                if not phone:
-                    raise ValueError("Phone is required.")
 
-                address = request.data.get('address', "")
-                delivery_method_id = request.data.get('default_delivery_method')
+                phone = data.get('phone')
+                address = data.get('address', "")
+                preferred_payment_method = data.get('preferred_payment_method')
+                delivery_method_id = data.get('default_delivery_method')
+                # Extract additional fields for Buyer profile
 
                 # Retrieve the corresponding DeliveryMethod object
                 delivery_method = None
@@ -146,7 +177,8 @@ class BuyerRegistrationAPIView(APIView):
                     user=user,
                     phone=phone,
                     address=address,
-                    default_delivery_method=delivery_method
+                    default_delivery_method=data.get('default_delivery_method'),
+                    preferred_payment_method=data.get('preferred_payment_method')
                 )
 
                 # If everything is successful, return a success response
@@ -154,26 +186,6 @@ class BuyerRegistrationAPIView(APIView):
         except ValueError as e:
             # Handle validation errors and ensure the database is rolled back
             return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
-
-# API view for accessing farmer dashboard
-class FarmerDashboardAPIView(APIView):
-    permission_classes = [IsAuthenticated]  # Only authenticated users can access this view
-
-    def get(self, request):
-        # Retrieve the farmer's profile based on the logged-in user
-        farmer_profile = get_object_or_404(Farmer, user=request.user)
-        serializer = FarmerSerializer(farmer_profile)  # Serialize the farmer profile data
-        return Response(serializer.data, status=status.HTTP_200_OK)  # Send serialized data as a response
-
-# API view for accessing buyer dashboard
-class BuyerDashboardAPIView(APIView):
-    permission_classes = [IsAuthenticated]  # Only authenticated users can access this view
-
-    def get(self, request):
-        # Retrieve the buyer's profile based on the logged-in user
-        buyer_profile = get_object_or_404(Buyer, user=request.user)
-        serializer = BuyerSerializer(buyer_profile)  # Serialize the buyer profile data
-        return Response(serializer.data, status=status.HTTP_200_OK)  # Send serialized data as a response
 
 class AdminBuyerListView(APIView):
     """View all buyers or a specific buyer"""
@@ -250,3 +262,15 @@ class CreateAdminAPIView(APIView):
             serializer.save(is_superuser=False, is_staff=True)  # Make staff but not superuser
             return Response({"message": "Admin created successfully!"}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class FarmerDashboardAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response({"message": "Welcome to the Farmer Dashboard!"})
+
+class BuyerDashboardAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response({"message": "Welcome to the Buyer Dashboard!"})

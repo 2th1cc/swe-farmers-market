@@ -23,7 +23,7 @@ class CustomUserAdmin(admin.ModelAdmin):
 
 @admin.register(Buyer)
 class BuyerAdmin(admin.ModelAdmin):
-    list_display = ('user', 'phone', 'address', 'default_delivery_method')
+    list_display = ('user', 'phone', 'address', 'registration_date', 'default_delivery_method')
     search_fields = ('user__email', 'user__username', 'phone', 'address')
     list_filter = ('registration_date', 'default_delivery_method')
 

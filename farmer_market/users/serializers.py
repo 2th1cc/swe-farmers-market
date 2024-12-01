@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from .models import Buyer, Farmer, CustomUser
+from .models import Buyer, Farmer, CustomUser, Crop
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer, TokenRefreshSerializer
 
 class ImportantTokenSerializer(TokenObtainPairSerializer):
@@ -31,6 +31,7 @@ class UserSerializer(serializers.ModelSerializer):
                 'username',
                 'email', 
                 'password',
+                'phone_number',
                 'user_type',
                 ]  # Fields to include in the serialization process
         extra_kwargs = {'password': {'write_only': True},
@@ -42,6 +43,7 @@ class UserSerializer(serializers.ModelSerializer):
         user = CustomUser.objects.create(
             email=validated_data['email'],
             username=validated_data.get('username', ''),
+            phone_number=validated_data.get('phone_number', ''),
             user_type=validated_data.get('user_type')  # Expect user_type in the request
         )
         user.set_password(validated_data['password'])  # Hash the password
@@ -52,18 +54,25 @@ class UserSerializer(serializers.ModelSerializer):
 # Serializer for handling Farmer data
 class FarmerSerializer(serializers.ModelSerializer):
     # Meta class contains configuration for the FarmerSerializer
+    crops_grown = serializers.SlugRelatedField(
+        many=True,
+        queryset=Crop.objects.all(),
+        slug_field='name'  # Use the crop name as the field for selection
+    )
+
     class Meta:
         model = Farmer  # Specify the Farmer model for serialization
         fields = [
             'user', 
-            'phone', 
             'registration_date', 
             'is_approved', 
             'rejection_feedback', 
             'farm_name', 
             'farm_location', 
             'farm_size',
-            'soil_type'
+            'soil_type',
+            'farm_description', 
+            'crops_grown'
         ]
 
 # Serializer for handling Buyer data
@@ -72,9 +81,9 @@ class BuyerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Buyer  # Specify the Buyer model for serialization
         fields = ['user', 
-                'phone', 
                 'registration_date',
                 'address',
+                'preferred_payment_method',
                 'default_delivery_method'
                 ]
         # Include fields related to buyer profile information and preferences

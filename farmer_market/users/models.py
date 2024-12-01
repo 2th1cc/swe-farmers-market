@@ -38,7 +38,16 @@ class CustomUser(AbstractUser):
 
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=3)
     email = models.EmailField(unique=True)
-
+    phone_number = models.CharField(
+        max_length=15,
+        blank=True,
+        validators=[
+            RegexValidator(
+                regex=r'^\+?1?\d{9,15}$',
+                message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."
+            )
+        ]
+    )
     USERNAME_FIELD = 'email'  # Use email for authentication instead of username
     REQUIRED_FIELDS = ['username']
     # Specify related_name to avoid conflicts with the default User model
@@ -47,35 +56,24 @@ class CustomUser(AbstractUser):
     def __str__(self):
         return self.email
 
-    groups = models.ManyToManyField(
-        'auth.Group', 
-        related_name='customuser_set',  # Custom related name
-        blank=True
-    )
-    user_permissions = models.ManyToManyField(
-        'auth.Permission', 
-        related_name='customuser_set',  # Custom related name
-        blank=True
-    )
-
 # Farmer model
+class Crop(models.Model):
+    name = models.CharField(max_length=100, unique=True)  # Each crop has a unique name
+
+    def __str__(self):
+        return self.name
+    
 class Farmer(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='farmer')
-    phone = models.CharField(
-     max_length=15,
-     validators=[
-         RegexValidator(
-             regex=r'^\+?1?\d{9,15}$',
-             message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."
-            )
-        ]
-    )
     registration_date = models.DateField(auto_now_add=True)
     is_approved = models.BooleanField(default=False)
+    phone = models.CharField(max_length=15) 
     rejection_feedback = models.TextField(blank=True, null=True)  # For optional rejection feedback
     farm_name = models.CharField(max_length=255, blank=True, null=True)
     farm_location = models.CharField(max_length=255, blank=True, null=True)
     farm_size = models.CharField(max_length=100, blank=True, null=True)
+    farm_description = models.TextField(blank=True, null=True)
+    crops_grown = models.ManyToManyField(Crop, related_name="farmers")  # Many-to-many relationship
     soil_type = models.PositiveIntegerField(choices=[
         (1, 'Sandy'),
         (2, 'Clay'),
@@ -91,9 +89,10 @@ class Farmer(models.Model):
 # Buyer model
 class Buyer(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='buyer')
-    phone = models.CharField(max_length=15)
     registration_date = models.DateField(auto_now_add=True)
+    phone = models.CharField(max_length=15)
     address = models.CharField(max_length=255)
+    preferred_payment_method = models.CharField(max_length=50, blank=True, null=True)
     default_delivery_method = models.ForeignKey(DeliveryMethod, on_delete=models.SET_NULL, null=True)
     def __str__(self):
         return self.user.email
