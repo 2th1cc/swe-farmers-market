@@ -134,7 +134,8 @@ Overall, this diagram shows the complete cycle of operations, from registration 
 <img src="https://github.com/user-attachments/assets/d84c3cdd-6589-4c26-ad01-15254f2cae93" width="650">
 
 
-The diagrams above really helped us designing the whole application,
+
+The diagrams helped guide the design and implementation of the database and system by providing a clear, visual representation of the relationships, attributes, and structure.
 
 #### Entities and Attributes
 
@@ -340,6 +341,86 @@ CREATE INDEX "users_buyer_default_delivery_method_id_623a5395" ON "users_buyer" 
 CREATE TABLE IF NOT EXISTS "authtoken_token" ("key" varchar(40) NOT NULL PRIMARY KEY, "created" datetime NOT NULL, "user_id" integer NOT NULL UNIQUE REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED);
 ```
 
+#### Queries to fill database with test data
+
+```sql
+-- Insert data into auth_user
+INSERT INTO auth_user (username, email, password, first_name, last_name, is_active, is_superuser, is_staff, date_joined)
+VALUES 
+('farmer1', 'farmer1@example.com', 'hashed_password', 'John', 'Doe', TRUE, FALSE, FALSE, '2024-12-01'),
+('buyer1', 'buyer1@example.com', 'hashed_password', 'Alice', 'Smith', TRUE, FALSE, FALSE, '2024-12-01');
+
+-- Insert into users_customuser
+INSERT INTO users_customuser (user_ptr_id, user_type) VALUES (1, 1), (2, 2);
+
+-- Insert Farmer data
+INSERT INTO users_farmer (user_id, phone, registration_date, is_approved, farm_name, farm_location, farm_size, soil_type)
+VALUES 
+(1, '1234567890', '2024-12-01', TRUE, 'Green Valley Farm', 'Almaty, Kazakhstan', 50, 2);
+
+-- Insert Buyer data
+INSERT INTO users_buyer (user_id, phone, registration_date, address, default_delivery_method_id)
+VALUES 
+(2, '9876543210', '2024-12-01', 'Astana, Kazakhstan', NULL);
+
+-- Insert Products
+INSERT INTO products_product (user_id, name, category, description, price, quantity, is_out_of_stock)
+VALUES 
+(1, 'Wheat', 'Grain', 'High-quality wheat.', 150.50, 100, FALSE),
+(1, 'Tomatoes', 'Vegetable', 'Fresh organic tomatoes.', 300.00, 0, TRUE);
+
+-- Insert Delivery Methods
+INSERT INTO orders_deliverymethod (name, description, type)
+VALUES 
+('Standard Shipping', 'Delivery within 5-7 days.', 1),
+('Express Shipping', 'Delivery within 1-2 days.', 2);
+
+```
+
+#### Test Cases
+1. Check approved farmers
+```sql
+SELECT COUNT(*) AS approved_farmers FROM users_farmer WHERE is_approved = TRUE;
+```
+2. Check Out-of-Stock Products
+```sql
+SELECT name FROM products_product WHERE is_out_of_stock = TRUE;
+```
+3. Check Buyers Who Have Purchased Products
+```sql
+SELECT 
+    auth_user.username AS buyer_name, COUNT(orders_order.id) AS order_count 
+FROM 
+    orders_order 
+JOIN 
+    users_buyer 
+ON 
+    orders_order.buyer_id = users_buyer.user_id 
+JOIN 
+    auth_user 
+ON 
+    users_buyer.user_id = auth_user.id 
+GROUP BY 
+    auth_user.username;
+
+```
+4. Check Buyers Without a Default Delivery Method
+```sql
+SELECT 
+    auth_user.username AS buyer_name, users_buyer.address 
+FROM 
+    users_buyer 
+JOIN 
+    auth_user 
+ON 
+    users_buyer.user_id = auth_user.id 
+WHERE 
+    default_delivery_method_id IS NULL;
+```
+5. Verify Buyer Registration
+```sql
+SELECT username FROM auth_user WHERE id IN (SELECT user_id FROM users_buyer);
+```
 
 
 
