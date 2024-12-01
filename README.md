@@ -21,6 +21,7 @@ SOFTWARE ENGINEERING CSCI 361
   - [Use Case Diagram](#use-case-diagram)
   - [Activity Diagram](#activity-diagram)
   - [ER Diagram](#er-diagram)
+  - 
 - [Software Details](#software-details)
   - [User Registration and Authentification](#user-registration-and-authentification)
   - [Farmer Interface](#farmer-interface)
@@ -158,6 +159,87 @@ Overall, this diagram shows the complete cycle of operations, from registration 
    - Order to Product: M:N (handled through OrderDetails)
    - Order to OrderDetails: 1:M
    - Product to OrderDetails: 1:M
+5. ERD
+<img src="https://github.com/user-attachments/assets/d84c3cdd-6589-4c26-ad01-15254f2cae93" width="650">
+
+6. Database using DBRMS
+
+```sql
+CREATE TABLE Farmer (
+FarmerID INT PRIMARY KEY,
+Name VARCHAR(100) NOT NULL,
+Email VARCHAR(100) UNIQUE NOT NULL,
+Phone VARCHAR(15) NOT NULL,
+RegistrationDate DATE NOT NULL
+);
+CREATE TABLE Buyer (
+BuyerID INT PRIMARY KEY,
+Name VARCHAR(100) NOT NULL,
+Email VARCHAR(100) UNIQUE NOT NULL,
+Phone VARCHAR(15) NOT NULL,
+RegistrationDate DATE NOT NULL,
+Address VARCHAR(255) NOT NULL
+);
+CREATE TABLE Farm (
+FarmID INT PRIMARY KEY,
+Name VARCHAR(100) NOT NULL,
+Location VARCHAR(255) NOT NULL,
+Size DECIMAL(10, 2),
+SoilType VARCHAR(50),
+EstablishedDate DATE,
+FarmerID INT NOT NULL,
+FOREIGN KEY (FarmerID) REFERENCES Farmer(FarmerID)
+);
+CREATE TABLE Product (
+ProductID INT PRIMARY KEY,
+Name VARCHAR(100) NOT NULL,
+Category VARCHAR(50) NOT NULL,
+Price DECIMAL(10, 2) NOT NULL,
+StockQuantity INT NOT NULL,
+Unit VARCHAR(20) NOT NULL,
+FarmID INT NOT NULL,
+FOREIGN KEY (FarmID) REFERENCES Farm(FarmID)
+);
+CREATE TABLE "Order" (
+OrderID INT PRIMARY KEY,
+OrderDate DATE NOT NULL,
+TotalAmount DECIMAL(10, 2) NOT NULL,
+OrderStatus VARCHAR(50) NOT NULL,
+PaymentMethod VARCHAR(50),
+BuyerID INT NOT NULL,
+FOREIGN KEY (BuyerID) REFERENCES Buyer(BuyerID)
+);
+CREATE TABLE Payment (
+Unset
+PaymentID INT PRIMARY KEY,
+PaymentDate DATE NOT NULL,
+Amount DECIMAL(10, 2) NOT NULL,
+PaymentMethod VARCHAR(50) NOT NULL,
+PaymentStatus VARCHAR(50) NOT NULL,
+OrderID INT NOT NULL,
+FOREIGN KEY (OrderID) REFERENCES "Order"(OrderID)
+);
+CREATE TABLE Delivery (
+DeliveryID INT PRIMARY KEY,
+DeliveryDate DATE NOT NULL,
+DeliveryStatus VARCHAR(50) NOT NULL,
+CourierService VARCHAR(100) NOT NULL,
+DeliveryAddress VARCHAR(255) NOT NULL,
+OrderID INT NOT NULL,
+FOREIGN KEY (OrderID) REFERENCES "Order"(OrderID)
+);
+CREATE TABLE OrderDetails (
+OrderID INT NOT NULL,
+ProductID INT NOT NULL,
+Quantity INT NOT NULL,
+Price DECIMAL(10, 2) NOT NULL,
+PRIMARY KEY (OrderID, ProductID),
+FOREIGN KEY (OrderID) REFERENCES "Order"(OrderID),
+FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+);
+```
+
+
 
 
 
