@@ -1,4 +1,4 @@
-# Farmer Market System
+![image](https://github.com/user-attachments/assets/981ddc54-6a62-406e-b0aa-bda6ef23e06e)![image](https://github.com/user-attachments/assets/78127263-1e36-473a-a29e-f2487c542c9e)![image](https://github.com/user-attachments/assets/2e1ae246-a592-4acd-8725-6d5ca29f8d60)# Farmer Market System
 
 Nazarbayev University
 SOFTWARE ENGINEERING CSCI 361
@@ -21,6 +21,7 @@ SOFTWARE ENGINEERING CSCI 361
   - [Use Case Diagram](#use-case-diagram)
   - [Activity Diagram](#activity-diagram)
   - [ER Diagram](#er-diagram)
+  - [Database](#database)
 - [Software Details](#software-details)
   - [User Registration and Authentification](#user-registration-and-authentification)
   - [Farmer Interface](#farmer-interface)
@@ -134,8 +135,8 @@ Overall, this diagram shows the complete cycle of operations, from registration 
 <img src="https://github.com/user-attachments/assets/d84c3cdd-6589-4c26-ad01-15254f2cae93" width="650">
 
 
-
 The diagrams helped guide the design and implementation of the database and system by providing a clear, visual representation of the relationships, attributes, and structure.
+### Database
 
 #### Entities and Attributes
 
@@ -353,6 +354,9 @@ VALUES
 ('password4', NULL, 0, 'farmer_user2', 'Robert', 'Taylor', 0, 1, '2024-12-01 12:00:00', 2, 'farmer2@example.com'),
 ('password5', '2024-12-02 09:00:00', 0, 'buyer_user2', 'Alice', 'Brown', 0, 1, '2024-12-01 12:30:00', 3, 'buyer2@example.com');
 ```
+
+![image](https://github.com/user-attachments/assets/8da78501-f0d5-416f-8087-187fbebf21ee)
+
 ##### Insert Data into `users_farmer` Table
 ```sql
 INSERT INTO users_farmer (phone, registration_date, is_approved, rejection_feedback, farm_name, farm_location, farm_size, soil_type, user_id)
@@ -360,6 +364,9 @@ VALUES
 ('123-456-7890', '2024-12-01', 1, NULL, 'Sunny Farms', '123 Farm Road', '50 acres', 1, 2),
 ('987-654-3210', '2024-12-02', 0, 'Missing Documents', 'Rainy Meadows', '456 Field Lane', '20 acres', 2, 4);
 ```
+
+![image](https://github.com/user-attachments/assets/2de10037-5ab2-4bed-8ac3-d54893803caf)
+
 ##### Insert Data into `users_buyer` Table
 ```sql
 INSERT INTO users_buyer (phone, registration_date, address, default_delivery_method_id, user_id)
@@ -367,6 +374,9 @@ VALUES
 ('555-123-4567', '2024-12-01', '123 Market Street', NULL, 3),
 ('555-765-4321', '2024-12-02', '456 Shopping Avenue', NULL, 5);
 ```
+![image](https://github.com/user-attachments/assets/3b43e46c-9872-42bb-8229-6c1cb5788018)
+
+
 ##### Insert Data into `orders_deliverymethod` Table
 ```sql
 INSERT INTO orders_deliverymethod (name, description, type)
@@ -377,6 +387,11 @@ VALUES
 ('Drone', 'Automated drone delivery', 'Innovative'),
 ('Bulk Transport', 'Bulk delivery for large orders', 'Specialized');
 ```
+
+![image](https://github.com/user-attachments/assets/c3f8889e-c45e-4abd-bf85-5047e1debde1)
+
+
+
 ##### Insert Data into `products_product` Table
 ```sql
 INSERT INTO products_product (name, category, description, price, quantity, is_out_of_stock, user_id)
@@ -389,54 +404,98 @@ VALUES
 
 ```
 
+![image](https://github.com/user-attachments/assets/ccf88095-f01c-41ea-8dd9-8c04302d6c73)
 
-#### Test Cases
-1. Check approved farmers
+
+
+As you can see by the pictures all of the insert queries work properly.
+
+#### Queries to Test the Schema
+1. Retrieve all farmers and their farm details:
 ```sql
-SELECT COUNT(*) AS approved_farmers FROM users_farmer WHERE is_approved = TRUE;
+SELECT u.username, f.farm_name, f.farm_location, f.farm_size
+FROM users_farmer f
+JOIN users_customuser u ON f.user_id = u.id;
 ```
-2. Check Out-of-Stock Products
+![image](https://github.com/user-attachments/assets/447c8995-135a-4459-bb83-5c8bb4f4277f)
+
+2. Retrieve all products and their stock status:
 ```sql
-SELECT name FROM products_product WHERE is_out_of_stock = TRUE;
+SELECT p.name, p.category, p.price, p.quantity, p.is_out_of_stock
+FROM products_product p;
 ```
-3. Check Buyers Who Have Purchased Products
+![image](https://github.com/user-attachments/assets/2aff0827-892d-4099-9df2-930a6314e1d7)
+
+3. Select Rows with a Condition
+```sql
+SELECT * FROM users_customuser WHERE is_active = 1;
+```
+![image](https://github.com/user-attachments/assets/9821f60c-474c-48e6-8788-c25282140682)
+
+
+4. Join Tables
 ```sql
 SELECT 
-    auth_user.username AS buyer_name, COUNT(orders_order.id) AS order_count 
+    u.username, u.email, f.farm_name, f.farm_location 
 FROM 
-    orders_order 
+    users_customuser u
 JOIN 
-    users_buyer 
-ON 
-    orders_order.buyer_id = users_buyer.user_id 
-JOIN 
-    auth_user 
-ON 
-    users_buyer.user_id = auth_user.id 
+    users_farmer f ON u.id = f.user_id;
+```
+![image](https://github.com/user-attachments/assets/ee418526-a972-43c8-955c-8fb46c2691d9)
+
+
+5. Aggregate Functions
+```sql
+SELECT COUNT(*) AS farmer_count FROM users_farmer;
+```
+![image](https://github.com/user-attachments/assets/c4ee00d2-cef4-4fd7-93f8-158f058c7a9b)
+
+6. Group By with Aggregates
+```sql
+SELECT 
+    type, COUNT(*) AS method_count 
+FROM 
+    orders_deliverymethod 
 GROUP BY 
-    auth_user.username;
+    type;
 
 ```
-4. Check Buyers Without a Default Delivery Method
+![image](https://github.com/user-attachments/assets/21f1b4ec-dd50-4de6-9381-f0d6c4856104)
+
+7. Order By
 ```sql
 SELECT 
-    auth_user.username AS buyer_name, users_buyer.address 
+    name, price 
 FROM 
-    users_buyer 
-JOIN 
-    auth_user 
-ON 
-    users_buyer.user_id = auth_user.id 
-WHERE 
-    default_delivery_method_id IS NULL;
+    products_product 
+ORDER BY 
+    price DESC;
 ```
-5. Verify Buyer Registration
+![image](https://github.com/user-attachments/assets/1a018a50-0b08-4b12-b0c5-96169c2e55b4)
+
+8. Inner Join Across Multiple Tables
 ```sql
-SELECT username FROM auth_user WHERE id IN (SELECT user_id FROM users_buyer);
+SELECT 
+    p.name AS product_name, p.price, f.farm_name, f.farm_location 
+FROM 
+    products_product p
+JOIN 
+    users_farmer f ON p.user_id = f.user_id;
+
 ```
+![image](https://github.com/user-attachments/assets/8a13cd51-195e-4d17-8a02-6d8690195924)
 
+9. Conditional Aggregates
+```sql
+SELECT 
+    SUM(CASE WHEN is_out_of_stock = 0 THEN 1 ELSE 0 END) AS in_stock,
+    SUM(CASE WHEN is_out_of_stock = 1 THEN 1 ELSE 0 END) AS out_of_stock
+FROM 
+    products_product;
 
-
+```
+![image](https://github.com/user-attachments/assets/766ec135-e64f-4455-a959-9e93c6330993)
 
 
 ---
