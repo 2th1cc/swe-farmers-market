@@ -497,6 +497,21 @@ FROM
 ```
 ![image](https://github.com/user-attachments/assets/766ec135-e64f-4455-a959-9e93c6330993)
 
+10. Union
+```sql
+SELECT 
+    phone 
+FROM 
+    users_farmer
+UNION
+SELECT 
+    phone 
+FROM 
+    users_buyer;
+```
+![image](https://github.com/user-attachments/assets/5509a187-ebbe-4b5e-8cea-d3974ef67d46)
+
+
 
 ---
 
