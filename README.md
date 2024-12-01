@@ -509,8 +509,10 @@ SELECT
 FROM 
     users_buyer;
 ```
-![image](https://github.com/user-attachments/assets/5509a187-ebbe-4b5e-8cea-d3974ef67d46)
+![image](https://github.com/user-attachments/assets/e4f77a83-1b44-469d-8d57-b1ab3af6184a)
 
+
+The database testing confirmed a functional design for managing users, farmers, buyers, products, and delivery methods. Queries for inserting, retrieving, and joining data worked well, with accurate results and smooth execution. Optional fields provided flexibility, and the schema handled test scenarios effectively. While the database is ready for use, further optimization and security enhancements would improve performance and scalability.
 
 
 ---
