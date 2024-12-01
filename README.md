@@ -159,10 +159,10 @@ Overall, this diagram shows the complete cycle of operations, from registration 
    - Order to Product: M:N (handled through OrderDetails)
    - Order to OrderDetails: 1:M
    - Product to OrderDetails: 1:M
-5. ERD
+5. **ERD**
 <img src="https://github.com/user-attachments/assets/d84c3cdd-6589-4c26-ad01-15254f2cae93" width="650">
 
-6. Database using DBRMS
+6. **Database using RDBMS**
 
 ```sql
 CREATE TABLE Farmer (
