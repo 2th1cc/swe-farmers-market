@@ -3,19 +3,14 @@
 Nazarbayev University
 SOFTWARE ENGINEERING CSCI 361
 
-Team Members:
+**Team Members**:
 
-Lazzat Zhengissova
-
-Akmaral Ayazbay
-
-Yeldos Nurpeissov
-
-Azimzhan Abdrakhmanov
-
-Zeindi Adakhajiyev
-
-Yezhan Tugralin
+- Lazzat Zhengissova
+- Akmaral Ayazbay
+- Yeldos Nurpeissov
+- Azimzhan Abdrakhmanov
+- Zeindi Adakhajiyev
+- Yezhan Tugralin
 
 ## Contents
 
@@ -25,6 +20,7 @@ Yezhan Tugralin
   - [Component Diagram](#component-diagram)
   - [Use Case Diagram](#use-case-diagram)
   - [Activity Diagram](#activity-diagram)
+  - [ER Diagram](#er-diagram)
 - [Software Details](#software-details)
   - [User Registration and Authentification](#user-registration-and-authentification)
   - [Farmer Interface](#farmer-interface)
@@ -122,6 +118,48 @@ The activity diagram illustrates the entire process flow in the Farmer's Market 
 - Error Handling: The system checks for validation and error recovery throughout the process, ensuring that login and verification steps are correctly handled.
 
 Overall, this diagram shows the complete cycle of operations, from registration to order tracking and reporting, providing a seamless experience for all actors involved in the system.
+
+### ER Diagram
+1. **Entities**
+   - **Farmer**: Represents individuals who manage farms and sell products.
+   - **Buyer**: Represents individuals purchasing products.
+   - **Farm**: Represents a physical location where products are cultivated.
+   - **Product**: Represents items sold by farmers (e.g., vegetables, fruits).
+   - **Order**: Represents purchases made by buyers.
+   - **Payment**: Represents the payments made for orders.
+   - **Delivery**: Represents the delivery details for orders.
+   - **OrderDetails**: Captures details of products included in an order.
+2. **Relations**
+   - **Farmer OWNS Farms**: (one-to-many) One Farmer can own multiple Farms, but each Farm belongs to one Farmer.
+   - **Farm PRODUCES Products**: (one-to-many) One Farm can produce multiple Products, but each Product comes from one Farm.
+   - **Buyer PLACES Orders**: (one-to-many) One Buyer can place multiple Orders, but each Order is placed by one Buyer.
+   - **Order INCLUDES Products**: (many-to-many) One Order can include multiple Products, and one Product can be included in multiple Orders.
+   - **Order HAS Payment**: (one-to-one) One Order has exactly one Payment, and each Payment is linked to one Order.
+   - **Order HAS Delivery**: (one-to-one) One Order has exactly one Delivery, and each Delivery is linked to one Order.
+   - **OrderDetails DESCRIBES Products in Orders**: (one-to-many) One Order can have multiple entries in OrderDetails, and each entry is associated with one Product.
+   - **Delivery HANDLES Order**: (one-to-one) Each Delivery handles one Order, and each Order is managed by one Delivery.
+   - **Product APPEARS in OrderDetails**: (one-to-many) One Product can appear in multiple OrderDetails entries, describing its involvement in different Orders.
+   - **Payment SETTLES Orders**: (one-to-one) Each Payment is used to settle exactly one Order.
+3. **Attributes**
+   - **Farmer**: FarmerID (Primary Key), Name, Email, Phone, RegistrationDate
+   - **Buyer**: BuyerID (Primary Key), Name, Email, Phone, RegistrationDate, Address
+   - **Farm**: FarmID (Primary Key), Name, Location, Size, SoilType, EstablishedDate, FarmerID (Foreign Key)
+   - **Product**: ProductID (Primary Key), Name, Category, Price, StockQuantity, Unit, FarmID (Foreign Key)
+   - **Order**: OrderID (Primary Key), OrderDate, TotalAmount, OrderStatus, PaymentMethod, BuyerID (Foreign Key)
+   - **Payment**: PaymentID (Primary Key), PaymentDate, Amount, PaymentMethod, PaymentStatus, OrderID (Foreign Key)
+   - **Delivery**: DeliveryID (Primary Key), DeliveryDate, DeliveryStatus, CourierService, DeliveryAddress, OrderID (Foreign Key)
+   - **OrderDetails**: OrderID (Foreign Key, Primary Key), ProductID (Foreign Key, Primary Key), Quantity, Price
+4. **Cardinality**
+   - Farmer to Farm: 1:M
+   - Farm to Product: 1:M
+   - Buyer to Order: 1:M
+   - Order to Payment: 1:1
+   - Order to Delivery: 1:1
+   - Order to Product: M:N (handled through OrderDetails)
+   - Order to OrderDetails: 1:M
+   - Product to OrderDetails: 1:M
+
+
 
 ## Software Details
 
