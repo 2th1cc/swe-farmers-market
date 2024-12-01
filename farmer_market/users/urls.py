@@ -26,7 +26,7 @@ urlpatterns = [
     # API Dashboards for mobile application access
     path('api/dashboard/farmer/', FarmerDashboardAPIView.as_view(), name='farmer_dashboard_api'),
     path('api/dashboard/buyer/', BuyerDashboardAPIView.as_view(), name='buyer_dashboard_api'),
-
+    
     path('', lambda request: redirect('login')),
     path('admin/buyers/', AdminBuyerListView.as_view(), name='admin_buyer_list'),  # View all buyers
     path('admin/buyers/<int:buyer_id>/', AdminBuyerListView.as_view(), name='admin_buyer_detail'),  # View specific buyer

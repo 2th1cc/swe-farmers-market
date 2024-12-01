@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Buyer, Farmer, CustomUser, DeliveryMethod
-from .serializers import BuyerSerializer, FarmerSerializer, UserSerializer  # Serializers to convert model data to JSON
+from .serializers import BuyerSerializer,ImportantTokenSerializer, FarmerSerializer, UserSerializer  # Serializers to convert model data to JSON
 from django.contrib.auth import authenticate
 from django.core.mail import send_mail
 from rest_framework.authtoken.models import Token
@@ -12,48 +12,40 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from .serializers import EmailAuthTokenSerializer
 from django.db import transaction
 from django.db.models import ObjectDoesNotExist
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 # Endpoint for user login using token authentication
-class LoginAPIView(ObtainAuthToken):
-    serializer_class = EmailAuthTokenSerializer
-    
-    def post(self, request):
-        print("Received payload:", request.data)
-        # Use the DRF's built-in serializer for handling login data (username/password)
-        serializer = self.serializer_class(data=request.data, context={'request': request})
-        serializer.is_valid(raise_exception=True)  # Validate data and raise an error if invalid
-        user = serializer.validated_data['user']  # Retrieve the authenticated user from validated data
-        token, created = Token.objects.get_or_create(user=user)  # Get or create an authentication token for the user
-        print(f"Token for {user.email}: {token.key}")
-        redirect_url = {
-            1: "https://web-app.example.com/admin-dashboard",
-            2: "/api/dashboard/farmer/",
-            3: "/api/dashboard/buyer/"
-        }.get(user.user_type, None)
+class LoginAPIView(TokenObtainPairView):
+    serializer_class = ImportantTokenSerializer
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
 
-        if not redirect_url:
-            return Response({"error": "Invalid user type."}, status=status.HTTP_400_BAD_REQUEST)
+        refresh_token = serializer.validated_data["refresh"]
+        access_token = serializer.validated_data["access"]
 
-        print("Validation errors:", serializer.errors)
-        return Response({
-            "token": token.key,
-            "user_type": user.user_type,
-            "redirect_url": redirect_url
-        }, status=status.HTTP_200_OK)  # Return the token to the client
-        
+        response = Response({"success": "Login successful", "access": access_token}, status=status.HTTP_200_OK)
+
+        return response
+
 # API view for registering a new farmer
 class FarmerRegistrationAPIView(APIView):
     def post(self, request):
         try:
             # Start a transaction block
             with transaction.atomic():
+                data = request.data
+                data['user_type'] = 2
                 # Deserialize and validate user data
-                user_serializer = UserSerializer(data=request.data)
+                user_serializer = UserSerializer(data=data)
                 if not user_serializer.is_valid():
                     return Response(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
                 # Create the user with user_type indicating they are a farmer
                 user = user_serializer.save(user_type=2)
+                user.is_staff = False  # Explicitly ensure no admin privileges
+                user.is_superuser = False
+                user.save()
 
                 # Collect additional farmer-specific fields
                 phone = request.data.get('phone')
@@ -111,7 +103,7 @@ class BuyerRegistrationAPIView(APIView):
                 data = request.data
                 data['user_type'] = 3 
                 # Deserialize incoming user data using the UserSerializer
-                user_serializer = UserSerializer(data=request.data)
+                user_serializer = UserSerializer(data=data)
 
                 # Check if user data is valid
                 if not user_serializer.is_valid():
@@ -120,7 +112,9 @@ class BuyerRegistrationAPIView(APIView):
                     return Response(user_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
                 # Create the user with user_type indicating they are a buyer
                 user = user_serializer.save(user_type=3)
-
+                user.is_staff = False  # Explicitly ensure no admin privileges
+                user.is_superuser = False
+                user.save()
                 # Extract additional fields for Buyer profile
                 phone = request.data.get('phone')
                 if not phone:

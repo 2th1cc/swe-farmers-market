@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'products',
     'orders',
     'rest_framework',
+    'rest_framework_simplejwt',
     'rest_framework.authtoken',
+    'django_filters',
 ]
 
 REST_FRAMEWORK = {
@@ -53,6 +55,12 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
+    ],
+
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
     ],
 }
 
@@ -141,8 +149,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
+    'users.backends.EmailBackend', 
 ]
-
 # Logging configuration
 LOGGING = {
     'version': 1,
@@ -170,6 +178,10 @@ LOGGING = {
             'formatter': 'verbose',
         },
     },
+    'root': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+        },
     'loggers': {
         'django': {
             'handlers': ['console', 'file'],
@@ -193,6 +205,10 @@ LOGGING = {
         },
     },
 }
+
+AUTH_USER_MODEL = 'users.CustomUser'
+
+LOGGING_CONFIG = 'logging.config.dictConfig'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  # Use your email provider's SMTP server

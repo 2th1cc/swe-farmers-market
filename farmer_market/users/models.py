@@ -9,14 +9,25 @@ from django.core.validators import RegexValidator
 # Custom user manager for farmers and buyers
 #HOW users are created
 class CustomUserManager(BaseUserManager):
-    def create_user(self, username, email, password=None, **extra_fields):
+    def create_user(self, email, username=None, password=None, user_type=3, **extra_fields):
         if not email:
             raise ValueError('The Email field must be set')
         email = self.normalize_email(email)
-        user = self.model(username=username, email=email, **extra_fields)
+        user = self.model(email=email, username=username, user_type=user_type, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
+
+    def create_superuser(self, email, username=None, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError('Superuser must have is_staff=True.')
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError('Superuser must have is_superuser=True.')
+
+        return self.create_user(email, username, password, user_type=1, **extra_fields)
 
 
 # Custom user model for farmers and buyers
@@ -27,12 +38,19 @@ class CustomUser(AbstractUser):
         (2, 'farmer'),
         (3, 'buyer'),
     )
+    is_active = models.BooleanField(default=True)
+
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=3)
     email = models.EmailField(unique=True)
 
     USERNAME_FIELD = 'email'  # Use email for authentication instead of username
     REQUIRED_FIELDS = ['username']
     # Specify related_name to avoid conflicts with the default User model
+    objects = CustomUserManager()
+
+    def __str__(self):
+        return self.email
+
     groups = models.ManyToManyField(
         'auth.Group', 
         related_name='customuser_set',  # Custom related name
@@ -44,7 +62,6 @@ class CustomUser(AbstractUser):
         blank=True
     )
 
-    objects = CustomUserManager()
     
 
 # Farmer model

@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.core.mail import send_mail
 from .models import Farmer, Buyer, CustomUser
 from orders.models import DeliveryMethod
-
+#Admin works just fine!!
 admin.site.register(DeliveryMethod)
 
 @admin.action(description="Enable selected users")

@@ -1,7 +1,28 @@
+
 from rest_framework import serializers
 from .models import Buyer, Farmer, CustomUser
 from django.contrib.auth import authenticate
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer, TokenRefreshSerializer
 
+class ImportantTokenSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+
+        token["username"] = user.username
+        token["email"] = user.email
+        token['user_type'] = user.user_type
+
+        print(f"User being serialized: {user}")
+
+        # Dynamically check for user_type
+        if hasattr(user, 'user_type'):
+            token['user_type'] = user.user_type
+        else:
+            token['user_type'] = 'unknown'  # Or handle this gracefully
+
+
+        return token
 # Serializer for handling User data
 class UserSerializer(serializers.ModelSerializer):
     # Meta class contains configuration for the UserSerializer
@@ -42,7 +63,9 @@ class EmailAuthTokenSerializer(serializers.Serializer):
         print(f"Authenticating user: {email}")
         user = authenticate(username=email, password=password)  # Use email as username
         if not user:
-            raise serializers.ValidationError("Unable to log in with provided credentials.")
+            raise serializers.ValidationError("Invalid email or password.")
+        if not user.is_active:
+            raise serializers.ValidationError("User account is disabled.")
         attrs['user'] = user
         return attrs
     

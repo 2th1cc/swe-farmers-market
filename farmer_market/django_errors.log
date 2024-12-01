@@ -749,3 +749,1914 @@ Traceback (most recent call last):
     raise SMTPAuthenticationError(code, resp)
 smtplib.SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 2adb3069b0e04-53df646f23fsm805149e87.115 - gsmtp')
 ERROR 2024-11-30 21:27:13,853 basehttp "POST /api/register/farmer/ HTTP/1.1" 500 135710
+ERROR 2024-11-30 23:12:55,911 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 27, in post
+    user = serializer.validated_data['user']  # Retrieve the authenticated user from validated data
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+KeyError: 'user'
+ERROR 2024-11-30 23:12:55,913 basehttp "POST /api/login/ HTTP/1.1" 500 93558
+ERROR 2024-11-30 23:41:09,340 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 28, in post
+    token, created = Token.objects.get_or_create(user=user)  # Get or create an authentication token for the user
+                                                      ^^^^
+UnboundLocalError: cannot access local variable 'user' where it is not associated with a value
+ERROR 2024-11-30 23:41:09,340 basehttp "POST /api/login/ HTTP/1.1" 500 94297
+ERROR 2024-12-01 14:38:03,472 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 28, in post
+    token, created = Token.objects.get_or_create(user=user)  # Get or create an authentication token for the user
+                                                      ^^^^
+UnboundLocalError: cannot access local variable 'user' where it is not associated with a value
+ERROR 2024-12-01 14:38:03,474 basehttp "POST /api/login/ HTTP/1.1" 500 94609
+ERROR 2024-12-01 15:58:35,961 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 25, in post
+    if serializer.is_valid():
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 44, in validate
+    if user.check_password("securepassword123"):
+       ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'check_password'
+ERROR 2024-12-01 15:58:35,963 basehttp "POST /api/login/ HTTP/1.1" 500 107977
+ERROR 2024-12-01 15:59:55,377 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 25, in post
+    if serializer.is_valid():
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 44, in validate
+    if user.check_password("securepassword123"):
+       ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'check_password'
+ERROR 2024-12-01 15:59:55,379 basehttp "POST /api/login/ HTTP/1.1" 500 107977
+ERROR 2024-12-01 16:21:16,487 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 24, in post
+    if serializer.is_valid():
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 42, in validate
+    user = authenticate(request=self.context.get('request'), email=email, password=password)  # Use email as username
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 70, in authenticate
+    for backend, backend_path in _get_backends(return_tuples=True):
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 29, in _get_backends
+    backend = load_backend(backend_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 23, in load_backend
+    return import_string(path)()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1318, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'path'
+ERROR 2024-12-01 16:21:16,489 basehttp "POST /api/login/ HTTP/1.1" 500 165014
+ERROR 2024-12-01 16:23:37,184 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 24, in post
+    if serializer.is_valid():
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 42, in validate
+    user = authenticate(request=self.context.get('request'), email=email, password=password)  # Use email as username
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 70, in authenticate
+    for backend, backend_path in _get_backends(return_tuples=True):
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 29, in _get_backends
+    backend = load_backend(backend_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 23, in load_backend
+    return import_string(path)()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1318, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'path'
+ERROR 2024-12-01 16:23:37,186 basehttp "POST /api/login/ HTTP/1.1" 500 165014
+ERROR 2024-12-01 16:24:15,263 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 24, in post
+    if serializer.is_valid():
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 42, in validate
+    user = authenticate(request=self.context.get('request'), unsername=email, password=password)  # Use email as username
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 70, in authenticate
+    for backend, backend_path in _get_backends(return_tuples=True):
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 29, in _get_backends
+    backend = load_backend(backend_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 23, in load_backend
+    return import_string(path)()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1318, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'path'
+ERROR 2024-12-01 16:24:15,265 basehttp "POST /api/login/ HTTP/1.1" 500 165034
+ERROR 2024-12-01 16:24:34,551 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 24, in post
+    if serializer.is_valid():
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 42, in validate
+    user = authenticate(request=self.context.get('request'), unsername=email, password=password)  # Use email as username
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 70, in authenticate
+    for backend, backend_path in _get_backends(return_tuples=True):
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 29, in _get_backends
+    backend = load_backend(backend_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 23, in load_backend
+    return import_string(path)()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1318, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'path'
+ERROR 2024-12-01 16:24:34,553 basehttp "POST /api/login/ HTTP/1.1" 500 165034
+ERROR 2024-12-01 16:25:55,576 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 24, in post
+    if serializer.is_valid():
+       ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 42, in validate
+    user = authenticate(request=self.context.get('request'), username=email, password=password)  # Use email as username
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 70, in authenticate
+    for backend, backend_path in _get_backends(return_tuples=True):
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 29, in _get_backends
+    backend = load_backend(backend_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 23, in load_backend
+    return import_string(path)()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1318, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'path'
+ERROR 2024-12-01 16:25:55,578 basehttp "POST /api/login/ HTTP/1.1" 500 165029
+ERROR 2024-12-01 16:27:24,558 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 24, in post
+    serializer.is_valid(raise_exception=True)  # Validate data and raise an error if invalid
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 44, in validate
+    user = authenticate(username=email, password=password)  # Use email as username
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 70, in authenticate
+    for backend, backend_path in _get_backends(return_tuples=True):
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 29, in _get_backends
+    backend = load_backend(backend_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 23, in load_backend
+    return import_string(path)()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1318, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'path'
+ERROR 2024-12-01 16:27:24,560 basehttp "POST /api/login/ HTTP/1.1" 500 165100
+ERROR 2024-12-01 16:27:25,831 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 24, in post
+    serializer.is_valid(raise_exception=True)  # Validate data and raise an error if invalid
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 44, in validate
+    user = authenticate(username=email, password=password)  # Use email as username
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 70, in authenticate
+    for backend, backend_path in _get_backends(return_tuples=True):
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 29, in _get_backends
+    backend = load_backend(backend_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 23, in load_backend
+    return import_string(path)()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1318, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'path'
+ERROR 2024-12-01 16:27:25,833 basehttp "POST /api/login/ HTTP/1.1" 500 165100
+ERROR 2024-12-01 16:27:43,484 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 24, in post
+    serializer.is_valid(raise_exception=True)  # Validate data and raise an error if invalid
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 44, in validate
+    user = authenticate(username=email, password=password)  # Use email as username
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 70, in authenticate
+    for backend, backend_path in _get_backends(return_tuples=True):
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 29, in _get_backends
+    backend = load_backend(backend_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 23, in load_backend
+    return import_string(path)()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1318, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'path'
+ERROR 2024-12-01 16:27:43,486 basehttp "POST /api/login/ HTTP/1.1" 500 165100
+ERROR 2024-12-01 16:29:00,014 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 24, in post
+    serializer.is_valid(raise_exception=True)  # Validate data and raise an error if invalid
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 44, in validate
+    user = authenticate(username=email, password=password)  # Use email as username
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 70, in authenticate
+    for backend, backend_path in _get_backends(return_tuples=True):
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 29, in _get_backends
+    backend = load_backend(backend_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 23, in load_backend
+    return import_string(path)()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1304, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1381, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1354, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1318, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'path'
+ERROR 2024-12-01 16:29:00,016 basehttp "POST /api/login/ HTTP/1.1" 500 165100
+ERROR 2024-12-01 17:16:52,196 log Internal Server Error: /api/register/farmer/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 44, in post
+    data = request.data()
+           ^^^^^^^^^^^^^^
+TypeError: 'dict' object is not callable
+ERROR 2024-12-01 17:16:52,197 basehttp "POST /api/register/farmer/ HTTP/1.1" 500 93588
+ERROR 2024-12-01 17:21:33,647 log Internal Server Error: /api/register/farmer/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 44, in post
+    data = request.data()
+           ^^^^^^^^^^^^^^
+TypeError: 'dict' object is not callable
+ERROR 2024-12-01 17:21:33,648 basehttp "POST /api/register/farmer/ HTTP/1.1" 500 93588
+ERROR 2024-12-01 18:11:29,352 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 75, in validate
+    refresh = self.get_token(self.user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 15, in get_token
+    token['role'] = user.role
+                    ^^^^^^^^^
+AttributeError: 'User' object has no attribute 'role'
+ERROR 2024-12-01 18:11:29,354 basehttp "POST /api/login/ HTTP/1.1" 500 112758
+ERROR 2024-12-01 18:13:48,936 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 75, in validate
+    refresh = self.get_token(self.user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 15, in get_token
+    token['role'] = user.role
+                    ^^^^^^^^^
+AttributeError: 'User' object has no attribute 'role'
+ERROR 2024-12-01 18:13:48,937 basehttp "POST /api/login/ HTTP/1.1" 500 116837
+ERROR 2024-12-01 18:16:35,899 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 75, in validate
+    refresh = self.get_token(self.user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 14, in get_token
+    token['USER_TYPE_CHOICE'] = user.role
+                                ^^^^^^^^^
+AttributeError: 'User' object has no attribute 'role'
+ERROR 2024-12-01 18:16:35,900 basehttp "POST /api/login/ HTTP/1.1" 500 116943
+ERROR 2024-12-01 18:16:39,507 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 75, in validate
+    refresh = self.get_token(self.user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 14, in get_token
+    token['USER_TYPE_CHOICE'] = user.role
+                                ^^^^^^^^^
+AttributeError: 'User' object has no attribute 'role'
+ERROR 2024-12-01 18:16:39,508 basehttp "POST /api/login/ HTTP/1.1" 500 116943
+ERROR 2024-12-01 18:17:22,558 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 75, in validate
+    refresh = self.get_token(self.user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 14, in get_token
+    token['role'] = user.USER_TYPE_CHOICES
+                    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'USER_TYPE_CHOICES'
+ERROR 2024-12-01 18:17:22,564 basehttp "POST /api/login/ HTTP/1.1" 500 117025
+ERROR 2024-12-01 18:18:22,322 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 75, in validate
+    refresh = self.get_token(self.user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 14, in get_token
+    token['role'] = user.USER_TYPE_CHOICES
+                    ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'USER_TYPE_CHOICES'
+ERROR 2024-12-01 18:18:22,327 basehttp "POST /api/login/ HTTP/1.1" 500 117025
+ERROR 2024-12-01 18:19:21,833 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 75, in validate
+    refresh = self.get_token(self.user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 14, in get_token
+    token['role'] = user.user_type
+                    ^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'user_type'
+ERROR 2024-12-01 18:19:21,835 basehttp "POST /api/login/ HTTP/1.1" 500 116945
+ERROR 2024-12-01 18:19:40,343 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 75, in validate
+    refresh = self.get_token(self.user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 14, in get_token
+    token['user_type'] = user.user_type
+                         ^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'user_type'
+ERROR 2024-12-01 18:19:40,346 basehttp "POST /api/login/ HTTP/1.1" 500 116965
+ERROR 2024-12-01 18:21:56,412 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 75, in validate
+    refresh = self.get_token(self.user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 14, in get_token
+    token['user_type'] = user.USER_TYPE_CHOICES
+                         ^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'USER_TYPE_CHOICES'
+ERROR 2024-12-01 18:21:56,418 basehttp "POST /api/login/ HTTP/1.1" 500 117045
+ERROR 2024-12-01 18:24:41,855 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 75, in validate
+    refresh = self.get_token(self.user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 14, in get_token
+    token['user_type'] = user.USER_TYPE_CHOICE
+                         ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'USER_TYPE_CHOICE'
+ERROR 2024-12-01 18:24:41,860 basehttp "POST /api/login/ HTTP/1.1" 500 117035
+ERROR 2024-12-01 18:28:35,770 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 75, in validate
+    refresh = self.get_token(self.user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 14, in get_token
+    token['user_type'] = user.user_type
+                         ^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'user_type'
+ERROR 2024-12-01 18:28:35,772 basehttp "POST /api/login/ HTTP/1.1" 500 116965
+ERROR 2024-12-01 18:29:33,177 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 75, in validate
+    refresh = self.get_token(self.user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 14, in get_token
+    token['user_type'] = user.user_type
+                         ^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'user_type'
+ERROR 2024-12-01 18:29:33,180 basehttp "POST /api/login/ HTTP/1.1" 500 117101
+ERROR 2024-12-01 18:34:35,971 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 75, in validate
+    refresh = self.get_token(self.user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 14, in get_token
+    token['user_type'] = user.user_type
+                         ^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'user_type'
+ERROR 2024-12-01 18:34:35,974 basehttp "POST /api/login/ HTTP/1.1" 500 117101
+ERROR 2024-12-01 18:35:25,453 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 75, in validate
+    refresh = self.get_token(self.user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 14, in get_token
+    token['user_type'] = user.user_type
+                         ^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'user_type'
+ERROR 2024-12-01 18:35:25,456 basehttp "POST /api/login/ HTTP/1.1" 500 112886
+ERROR 2024-12-01 18:50:58,346 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 16, in cached_import
+    return getattr(module, class_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'users.backends' has no attribute 'EmailBackend'. Did you mean: 'ModelBackend'?
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 73, in validate
+    data = super().validate(attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 54, in validate
+    self.user = authenticate(**authenticate_kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 70, in authenticate
+    for backend, backend_path in _get_backends(return_tuples=True):
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 29, in _get_backends
+    backend = load_backend(backend_path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\auth\__init__.py", line 23, in load_backend
+    return import_string(path)()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\module_loading.py", line 32, in import_string
+    raise ImportError(
+ImportError: Module "users.backends" does not define a "EmailBackend" attribute/class
+ERROR 2024-12-01 18:50:58,348 basehttp "POST /api/login/ HTTP/1.1" 500 146958
+ERROR 2024-12-01 18:57:53,888 log Internal Server Error: /api/login/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 22, in post
+    serializer.is_valid(raise_exception=True)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\serializers.py", line 445, in run_validation
+    value = self.validate(value)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework_simplejwt\serializers.py", line 75, in validate
+    refresh = self.get_token(self.user)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\serializers.py", line 14, in get_token
+    token['user_type'] = user.user_type
+                         ^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'user_type'
+ERROR 2024-12-01 18:57:53,891 basehttp "POST /api/login/ HTTP/1.1" 500 117101
+ERROR 2024-12-01 20:31:29,965 log Internal Server Error: /admin/users/farmer/1/change/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\base\base.py", line 303, in _commit
+    return self.connection.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 1964, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 1819, in changeform_view
+    with transaction.atomic(using=router.db_for_write(self.model)):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\transaction.py", line 263, in __exit__
+    connection.commit()
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\base\base.py", line 327, in commit
+    self._commit()
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\base\base.py", line 302, in _commit
+    with debug_transaction(self, "COMMIT"), self.wrap_database_errors:
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\base\base.py", line 303, in _commit
+    return self.connection.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: database is locked
+ERROR 2024-12-01 20:31:36,509 log Internal Server Error: /admin/users/farmer/1/change/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 1964, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 1871, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\admin.py", line 94, in save_model
+    super().save_model(request, obj, form, change)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 1294, in save_model
+    obj.save()
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 891, in save
+    self.save_base(
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 997, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1129, in _save_table
+    updated = self._do_update(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1194, in _do_update
+    return filtered._update(values) > 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1278, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 2003, in execute_sql
+    cursor = super().execute_sql(result_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: database is locked
+ERROR 2024-12-01 20:33:45,516 log Internal Server Error: /api/register/farmer/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 79, in post
+    self._send_registration_email(user)
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 89, in _send_registration_email
+    send_mail(
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\mail\__init__.py", line 88, in send_mail
+    return mail.send()
+           ^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\mail\message.py", line 301, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 837, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2024-12-01 20:33:45,517 basehttp "POST /api/register/farmer/ HTTP/1.1" 500 144988
+ERROR 2024-12-01 20:34:23,145 log Internal Server Error: /api/register/farmer/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 79, in post
+    self._send_registration_email(user)
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\views.py", line 89, in _send_registration_email
+    send_mail(
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\mail\__init__.py", line 88, in send_mail
+    return mail.send()
+           ^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\mail\message.py", line 301, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 852, in create_connection
+    raise exceptions[0]
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 837, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+ERROR 2024-12-01 20:34:23,147 basehttp "POST /api/register/farmer/ HTTP/1.1" 500 144988
+ERROR 2024-12-01 20:43:16,877 log Internal Server Error: /admin/users/farmer/2/change/
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 1964, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 1871, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\Lyazzat\Desktop\this semester\CSCI 361 SWE\Farm_Project\farmer_market\users\admin.py", line 94, in save_model
+    super().save_model(request, obj, form, change)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\contrib\admin\options.py", line 1294, in save_model
+    obj.save()
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 891, in save
+    self.save_base(
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 997, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1129, in _save_table
+    updated = self._do_update(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\base.py", line 1194, in _do_update
+    return filtered._update(values) > 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\query.py", line 1278, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 2003, in execute_sql
+    cursor = super().execute_sql(result_type)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lyazzat\AppData\Local\Programs\Python\Python312\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: database is locked
+ERROR 2024-12-01 20:43:16,880 basehttp "POST /admin/users/farmer/2/change/ HTTP/1.1" 500 218889
