@@ -20,6 +20,14 @@ class LoginAPIView(TokenObtainPairView):
         user = serializer.user
 
         # Check if the user is a farmer or buyer
+        if user.user_type == 2:  # Farmer
+            farmer = Farmer.objects.get(user=user)
+            if not farmer.is_approved:
+                return Response(
+                    {"error": "Your account is not approved by the admin."},
+                    status=status.HTTP_403_FORBIDDEN,
+                )
+    
         if user.user_type not in [2, 3]:  # 2 = Farmer, 3 = Buyer
             return Response(
                 {"error": "Only farmers and buyers are allowed to log in."},
@@ -55,6 +63,13 @@ class FarmerRegistrationAPIView(APIView):
             with transaction.atomic():
                 data = request.data
                 data['user_type'] = 2
+
+                # Validate required fields
+                required_fields = ['email', 'password', 'phone', 'first_name', 'last_name', 'farm_name']
+                for field in required_fields:
+                    if field not in data or not data[field]:
+                        return Response({'error': f'Missing required field: {field}'}, status=status.HTTP_400_BAD_REQUEST)
+
                 # Deserialize and validate user data
                 user_serializer = UserSerializer(data=data)
                 if not user_serializer.is_valid():
@@ -85,12 +100,6 @@ class FarmerRegistrationAPIView(APIView):
                 if soil_type not in valid_soil_types:
                     raise ValueError(f"Invalid soil type. Valid values are: {valid_soil_types}")
                 
-                # Validate required fields
-                required_fields = ['email', 'password', 'first_name', 'last_name', 'farm_name']
-                for field in required_fields:
-                    if field not in data or not data[field]:
-                        return Response({'error': f'Missing required field: {field}'}, status=status.HTTP_400_BAD_REQUEST)
-
                 # Create farmer profile with validated fields
                 farmer = Farmer.objects.create(
                     user=user,
@@ -126,7 +135,6 @@ class FarmerRegistrationAPIView(APIView):
             recipient_list=[user.email],  # Recipient's email address
             fail_silently=False,
         )
-
 # API view for registering a new buyer
 class BuyerRegistrationAPIView(APIView):
     def post(self, request):
@@ -136,7 +144,7 @@ class BuyerRegistrationAPIView(APIView):
                 data = request.data
                 data['user_type'] = 3 
                 # Deserialize incoming user data using the UserSerializer
-                required_fields = ['email', 'password', 'first_name', 'last_name']
+                required_fields = ['email', 'password', 'phone', 'first_name', 'last_name']
                 for field in required_fields:
                     if field not in data or not data[field]:
                         return Response({'error': f'Missing required field: {field}'}, status=status.HTTP_400_BAD_REQUEST)
