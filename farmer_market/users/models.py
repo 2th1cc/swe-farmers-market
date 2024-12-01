@@ -2,10 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager, Group, Permission
 from orders.models import DeliveryMethod 
 from django.core.validators import RegexValidator
-
 #baseuser is used to create users and superusers
 #abstractuser allows customization; has all fields and methods of default user
-
 # Custom user manager for farmers and buyers
 #HOW users are created
 class CustomUserManager(BaseUserManager):
@@ -28,8 +26,6 @@ class CustomUserManager(BaseUserManager):
             raise ValueError('Superuser must have is_superuser=True.')
 
         return self.create_user(email, username, password, user_type=1, **extra_fields)
-
-
 # Custom user model for farmers and buyers
 # User model
 class CustomUser(AbstractUser):
@@ -61,8 +57,6 @@ class CustomUser(AbstractUser):
         related_name='customuser_set',  # Custom related name
         blank=True
     )
-
-    
 
 # Farmer model
 class Farmer(models.Model):
@@ -101,6 +95,5 @@ class Buyer(models.Model):
     registration_date = models.DateField(auto_now_add=True)
     address = models.CharField(max_length=255)
     default_delivery_method = models.ForeignKey(DeliveryMethod, on_delete=models.SET_NULL, null=True)
-    
     def __str__(self):
         return self.user.email

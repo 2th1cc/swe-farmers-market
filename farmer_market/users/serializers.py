@@ -1,7 +1,6 @@
 
 from rest_framework import serializers
 from .models import Buyer, Farmer, CustomUser
-from django.contrib.auth import authenticate
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer, TokenRefreshSerializer
 
 class ImportantTokenSerializer(TokenObtainPairSerializer):
@@ -49,25 +48,6 @@ class UserSerializer(serializers.ModelSerializer):
         user.is_active = True  # Activate the user by default
         user.save()
         return user
-
-#authenticate using email
-class EmailAuthTokenSerializer(serializers.Serializer):
-    email = serializers.EmailField()  # Replace 'username' with 'email'
-    password = serializers.CharField()
-    
-    def validate(self, attrs):
-        email = attrs.get('email').lower()
-        password = attrs.get('password')
-
-        # Authenticate using the email field
-        print(f"Authenticating user: {email}")
-        user = authenticate(username=email, password=password)  # Use email as username
-        if not user:
-            raise serializers.ValidationError("Invalid email or password.")
-        if not user.is_active:
-            raise serializers.ValidationError("User account is disabled.")
-        attrs['user'] = user
-        return attrs
     
 # Serializer for handling Farmer data
 class FarmerSerializer(serializers.ModelSerializer):

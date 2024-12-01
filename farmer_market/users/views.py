@@ -3,13 +3,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Buyer, Farmer, CustomUser, DeliveryMethod
 from .serializers import BuyerSerializer,ImportantTokenSerializer, FarmerSerializer, UserSerializer  # Serializers to convert model data to JSON
-from django.contrib.auth import authenticate
 from django.core.mail import send_mail
-from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import get_object_or_404
-from rest_framework.authtoken.views import ObtainAuthToken
-from .serializers import EmailAuthTokenSerializer
 from django.db import transaction
 from django.db.models import ObjectDoesNotExist
 from rest_framework_simplejwt.views import TokenObtainPairView
@@ -20,6 +16,15 @@ class LoginAPIView(TokenObtainPairView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+
+        user = serializer.user
+
+        # Check if the user is a farmer or buyer
+        if user.user_type not in [2, 3]:  # 2 = Farmer, 3 = Buyer
+            return Response(
+                {"error": "Only farmers and buyers are allowed to log in."},
+                status=status.HTTP_403_FORBIDDEN,
+            )
 
         refresh_token = serializer.validated_data["refresh"]
         access_token = serializer.validated_data["access"]
