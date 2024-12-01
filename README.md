@@ -341,41 +341,54 @@ CREATE INDEX "users_buyer_default_delivery_method_id_623a5395" ON "users_buyer" 
 CREATE TABLE IF NOT EXISTS "authtoken_token" ("key" varchar(40) NOT NULL PRIMARY KEY, "created" datetime NOT NULL, "user_id" integer NOT NULL UNIQUE REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED);
 ```
 
-#### Queries to fill database with test data
+#### Filling database with test data
 
+##### Insert Data into `users_customuser` Table
 ```sql
--- Insert data into auth_user
-INSERT INTO auth_user (username, email, password, first_name, last_name, is_active, is_superuser, is_staff, date_joined)
+INSERT INTO users_customuser (password, last_login, is_superuser, username, first_name, last_name, is_staff, is_active, date_joined, user_type, email)
 VALUES 
-('farmer1', 'farmer1@example.com', 'hashed_password', 'John', 'Doe', TRUE, FALSE, FALSE, '2024-12-01'),
-('buyer1', 'buyer1@example.com', 'hashed_password', 'Alice', 'Smith', TRUE, FALSE, FALSE, '2024-12-01');
-
--- Insert into users_customuser
-INSERT INTO users_customuser (user_ptr_id, user_type) VALUES (1, 1), (2, 2);
-
--- Insert Farmer data
-INSERT INTO users_farmer (user_id, phone, registration_date, is_approved, farm_name, farm_location, farm_size, soil_type)
-VALUES 
-(1, '1234567890', '2024-12-01', TRUE, 'Green Valley Farm', 'Almaty, Kazakhstan', 50, 2);
-
--- Insert Buyer data
-INSERT INTO users_buyer (user_id, phone, registration_date, address, default_delivery_method_id)
-VALUES 
-(2, '9876543210', '2024-12-01', 'Astana, Kazakhstan', NULL);
-
--- Insert Products
-INSERT INTO products_product (user_id, name, category, description, price, quantity, is_out_of_stock)
-VALUES 
-(1, 'Wheat', 'Grain', 'High-quality wheat.', 150.50, 100, FALSE),
-(1, 'Tomatoes', 'Vegetable', 'Fresh organic tomatoes.', 300.00, 0, TRUE);
-
--- Insert Delivery Methods
+('password1', '2024-12-01 12:00:00', 1, 'superadmin', 'Super', 'Admin', 1, 1, '2024-12-01 10:00:00', 1, 'superadmin@example.com'),
+('password2', NULL, 0, 'farmer_user1', 'John', 'Doe', 0, 1, '2024-12-01 11:00:00', 2, 'farmer1@example.com'),
+('password3', '2024-12-02 09:30:00', 0, 'buyer_user1', 'Jane', 'Smith', 0, 1, '2024-12-01 11:30:00', 3, 'buyer1@example.com'),
+('password4', NULL, 0, 'farmer_user2', 'Robert', 'Taylor', 0, 1, '2024-12-01 12:00:00', 2, 'farmer2@example.com'),
+('password5', '2024-12-02 09:00:00', 0, 'buyer_user2', 'Alice', 'Brown', 0, 1, '2024-12-01 12:30:00', 3, 'buyer2@example.com');
+```
+##### Insert Data into `users_farmer` Table
+```sql
+INSERT INTO users_farmer (phone, registration_date, is_approved, rejection_feedback, farm_name, farm_location, farm_size, soil_type, user_id)
+VALUES
+('123-456-7890', '2024-12-01', 1, NULL, 'Sunny Farms', '123 Farm Road', '50 acres', 1, 2),
+('987-654-3210', '2024-12-02', 0, 'Missing Documents', 'Rainy Meadows', '456 Field Lane', '20 acres', 2, 4);
+```
+##### Insert Data into `users_buyer` Table
+```sql
+INSERT INTO users_buyer (phone, registration_date, address, default_delivery_method_id, user_id)
+VALUES
+('555-123-4567', '2024-12-01', '123 Market Street', NULL, 3),
+('555-765-4321', '2024-12-02', '456 Shopping Avenue', NULL, 5);
+```
+##### Insert Data into `orders_deliverymethod` Table
+```sql
 INSERT INTO orders_deliverymethod (name, description, type)
-VALUES 
-('Standard Shipping', 'Delivery within 5-7 days.', 1),
-('Express Shipping', 'Delivery within 1-2 days.', 2);
+VALUES
+('Courier', 'Delivery via courier service', 'Express'),
+('Pick-Up', 'Customer pick-up from the farm', 'Standard'),
+('Postal', 'Delivery through the postal system', 'Economy'),
+('Drone', 'Automated drone delivery', 'Innovative'),
+('Bulk Transport', 'Bulk delivery for large orders', 'Specialized');
+```
+##### Insert Data into `products_product` Table
+```sql
+INSERT INTO products_product (name, category, description, price, quantity, is_out_of_stock, user_id)
+VALUES
+('Organic Apples', 'Fruit', 'Freshly picked organic apples', 2.50, 100, 0, 2),
+('Free Range Eggs', 'Poultry', 'Dozen of free range eggs', 4.00, 50, 0, 2),
+('Whole Wheat Flour', 'Grain', 'Organic whole wheat flour', 3.00, 30, 0, 4),
+('Honey', 'Sweetener', 'Raw natural honey', 10.00, 25, 0, 2),
+('Goat Milk', 'Dairy', 'Fresh goat milk from our farm', 5.00, 0, 1, 4);
 
 ```
+
 
 #### Test Cases
 1. Check approved farmers
