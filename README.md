@@ -132,6 +132,108 @@ Overall, this diagram shows the complete cycle of operations, from registration 
 ---
 ### ER Diagram 
 
+#### Relationship between entities:
+We defined these relationships to the entities based on real-world experiences. We used 2
+types of relationship definition - cardinality and participation:
+##### Farmer and Farm
+- A Farmer can manage multiple Farms (1 relationship between Farmer and Farm).
+- Every farm must belong to a farmer (total participation of the Farm entity).
+- Not every farmer has to have a farm (partial participation of the Farmer entity).
+##### Farm and Product
+- A Farm can list multiple Products (1 relationship between Farm and Product).
+- Every product must be grown on a farm (total participation of the Product entity).
+- Not every farm must have a product (partial participation of the Farm entity).
+##### Buyer and Order
+- A Buyer can place multiple Orders (1 relationship between Buyer and Order).
+- Not every buyer places an order (partial participation of the Buyer entity).
+- Every order must be placed by a buyer (total participation of the Order entity).
+##### Order and Payment
+- An Order can have one Payment (1:1 relationship between Order and Payment).
+- Every order must be paid for (total participation of the Order entity).
+- Every payment must be linked to an order (total participation of the Payment entity).
+##### Order and Delivery
+- An Order can have one Delivery (1:1 relationship between Order and Delivery).
+- Every order must be delivered (total participation of the Order entity).
+- Every delivery must be linked to an order (total participation of the Delivery entity).
+##### Order and Product
+- An Order can include multiple Products, and a Product can be part of multiple Orders (M:
+N relationship).
+- An associative entity called OrderDetails is created to capture this relationship.
+##### Order and OrderDetails
+- An Order can have multiple OrderDetails as this essentially just describes the details of
+each product that is in order (1 relationship between Order and OrderDetails).
+- OrderDetails cannot exist without Order (total participation of the Order entity).
+Product and OrderDetails
+- A Product can be included in multiple OrderDetails as it can be in several orders (1
+relationship between Product and OrderDetails).
+- Every entry in OrderDetails must reference a Product (total participation of the Product
+entity).
+
+**Defining attributes of the entities and their descriptions**:
+We have defined at least 5 attributes for each entity and defined primary and foreign keys based
+on what type of relationship each entity has with each other:
+
+#### Table 1. Attributes of Each Entity
+
+| Entity        | Attribute          | Data Type     | Description                                                                             |
+|---------------|--------------------|---------------|-----------------------------------------------------------------------------------------|
+| **Farmer**    | FarmerID           | INT (PK)      | Unique identifier for the farmer.                                                      |
+|               | Name               | VARCHAR       | Full name of the farmer.                                                               |
+|               | Email              | VARCHAR       | Email address of the farmer.                                                           |
+|               | Phone              | VARCHAR       | Phone number of the farmer.                                                            |
+|               | RegistrationDate   | DATE          | Date when the farmer registered in the system.                                         |
+| **Buyer**     | BuyerID            | INT (PK)      | Unique identifier for the buyer.                                                       |
+|               | Name               | VARCHAR       | Full name of the buyer.                                                                |
+|               | Email              | VARCHAR       | Email address of the buyer.                                                            |
+|               | Phone              | VARCHAR       | Phone number of the buyer.                                                             |
+|               | RegistrationDate   | DATE          | Date when the buyer registered in the system.                                          |
+|               | Address            | VARCHAR       | The physical address of the buyer for deliveries.                                      |
+| **Product**   | ProductID          | INT (PK)      | Unique identifier for the product.                                                     |
+|               | Name               | VARCHAR       | Name of the product (e.g., carrots, tomatoes).                                         |
+|               | Category           | VARCHAR       | Type or category of the product (e.g., vegetables, fruits).                            |
+|               | Price              | DECIMAL       | Price per unit of the product.                                                         |
+|               | StockQuantity      | INT           | Available quantity of the product in stock.                                            |
+|               | Unit               | VARCHAR       | Unit of measurement (e.g., kg, lbs, pieces).                                           |
+|               | FarmID (FK)        | INT           | Foreign key referencing Farm entity.                                                   |
+| **Farm**      | FarmID             | INT (PK)      | Unique identifier for the farm.                                                        |
+|               | Name               | VARCHAR       | Name of the farm.                                                                      |
+|               | Location           | VARCHAR       | Physical location of the farm.                                                         |
+|               | Size               | DECIMAL       | Size of the farm (in acres or hectares).                                               |
+|               | SoilType           | VARCHAR       | Type of soil on the farm (e.g., loamy, sandy).                                         |
+|               | EstablishedDate    | DATE          | Date when the farm was established.                                                    |
+|               | FarmerID (FK)      | INT           | Foreign key referencing Farmer entity.                                                 |
+| **Order**     | OrderID            | INT (PK)      | Unique identifier for the order.                                                       |
+|               | OrderDate          | DATE          | Date when the order was placed.                                                        |
+|               | TotalAmount        | DECIMAL       | Total amount of the order (calculated from products).                                  |
+|               | OrderStatus        | VARCHAR       | Current status of the order (e.g., pending, shipped).                                  |
+|               | PaymentMethod      | VARCHAR       | Method of payment (e.g., credit card, PayPal).                                         |
+|               | BuyerID (FK)       | INT           | Foreign key referencing Buyer entity.                                                  |
+| **Payment**   | PaymentID          | INT (PK)      | Unique identifier for the payment.                                                     |
+|               | PaymentDate        | DATE          | Date when the payment was made.                                                        |
+|               | Amount             | DECIMAL       | Amount paid.                                                                           |
+|               | PaymentMethod      | VARCHAR       | Method used for the payment (e.g., credit card, bank transfer).                        |
+|               | PaymentStatus      | VARCHAR       | Status of the payment (e.g., completed, pending).                                      |
+|               | OrderID (FK)       | INT           | Foreign key referencing Order entity.                                                  |
+| **Delivery**  | DeliveryID         | INT (PK)      | Unique identifier for the delivery.                                                    |
+|               | DeliveryDate       | DATE          | Date when the order was delivered.                                                     |
+|               | DeliveryStatus     | VARCHAR       | Current status of the delivery (e.g., in transit, delivered).                          |
+|               | CourierService     | VARCHAR       | Name of the courier service handling the delivery.                                     |
+|               | DeliveryAddress    | VARCHAR       | Address where the order was delivered.                                                 |
+|               | OrderID (FK)       | INT           | Foreign key referencing Order entity.                                                  |
+| **OrderDetails** | OrderID (FK, PK) | INT          | Foreign key referencing Order entity. Also composes the primary key of the entity.     |
+|               | ProductID (FK, PK) | INT           | Foreign key referencing Product entity. Also composes the primary key of the entity.   |
+|               | Quantity           | INT           | Quantity of the product in the order.                                                  |
+|               | Price              | DECIMAL       | Price of the product in the order.                                                     |
+
+#### Drawing ERD
+
+After identifying the entities and all the relationships needed for the system to work we began
+the creation of the ERD. The team used the draw.io tool as recommended in order to fulfil that
+task. ERD is really useful in visualizing all the connections between entities and how the system
+should work. We paid special attention to the implementation of primary and foreign keys,
+including constraints. This is the resulting diagram:
+
+
 <img src="https://github.com/user-attachments/assets/d84c3cdd-6589-4c26-ad01-15254f2cae93" width="650">
 
 
@@ -140,152 +242,6 @@ The diagrams helped guide the design and implementation of the database and syst
 ---
 
 ### Database
-
-#### Entities and Attributes
-
-##### 1.1. `auth_user`
-**Attributes:**
-- `id` (Primary Key)
-- `password` (hashed password)
-- `last_login` (datetime of the last login)
-- `is_superuser` (boolean flag)
-- `username` (unique, username of the user)
-- `first_name`, `last_name` (name fields)
-- `email` (email address)
-- `is_staff`, `is_active` (boolean flags for permissions)
-- `date_joined` (registration date)
-
-**Purpose:** Represents standard Django users.
-
-**Relationships:**
-- Links to groups (`auth_user_groups`).
-- Links to permissions (`auth_user_user_permissions`).
-
-##### 1.2. `users_customuser`
-**Attributes:**
-- Similar to `auth_user` but adds:
-  - `user_type` (integer, indicating the type of user: Farmer or Buyer)
-
-**Relationships:**
-- Extends `auth_user` functionality for custom roles (Farmer and Buyer).
-- Links to groups (`users_customuser_groups`) and permissions (`users_customuser_user_permissions`).
-
-##### 1.3. `users_farmer`
-**Attributes:**
-- `id` (Primary Key)
-- `phone`, `registration_date`
-- `is_approved` (boolean: farmer approval status)
-- `rejection_feedback` (text: reasons if not approved)
-- `farm_name`, `farm_location`
-- `farm_size` (optional, size of the farm)
-- `soil_type` (integer: a type representing soil category)
-
-**Relationships:**
-- Links to a single user in `users_customuser` (`user_id`, 1-to-1).
-- Represents additional attributes specific to farmers.
-
-##### 1.4. `users_buyer`
-**Attributes:**
-- `id` (Primary Key)
-- `phone`, `registration_date`, `address`
-- `default_delivery_method_id` (optional, references delivery methods)
-
-**Relationships:**
-- Links to a single user in `users_customuser` (`user_id`, 1-to-1).
-- Represents additional attributes specific to buyers.
-
-
-##### 1.5. `products_product`
-**Attributes:**
-- `id` (Primary Key)
-- `name`, `category`, `description`
-- `price` (decimal), `quantity` (integer)
-- `is_out_of_stock` (boolean: availability status)
-
-**Relationships:**
-- Linked to a user (likely a Farmer) via `user_id` (1-to-Many).
-- Products can have multiple images (`products_productimage`).
-- Products can generate notifications (`products_lowstocknotification`).
-
-
-##### 1.6. `products_productimage`
-**Attributes:**
-- `id` (Primary Key)
-- `image` (file path)
-
-**Relationships:**
-- Linked to a product (`product_id`, 1-to-Many).
-
-
-##### 1.7. `products_lowstocknotification`
-**Attributes:**
-- `id` (Primary Key)
-- `created_at` (timestamp), `is_read` (boolean)
-
-**Relationships:**
-- Linked to a Farmer (`farmer_id`, 1-to-Many).
-- Linked to a product (`product_id`, 1-to-Many).
-
-
-##### 1.8. `orders_deliverymethod`
-**Attributes:**
-- `id` (Primary Key)
-- `name`, `description`, `type`
-
-**Relationships:**
-- Linked optionally to buyers as their default delivery method.
-
-
-##### 1.9. `django_admin_log`, `auth_*`, and `django_*` tables
-**Purpose:** Support Django’s admin framework, authentication, and logging.
-
-**Attributes:**
-- Standard fields for logs, permissions, and sessions.
-
-#### Relationships and Cardinalities
-
-##### 2.1. User Relationships
-
-###### `auth_user` and `auth_user_groups`
-- **Cardinality:** Many-to-Many (users can belong to multiple groups).
-- **Implemented via:** `auth_user_groups` table.
-
-###### `auth_user` and `auth_user_user_permissions`
-- **Cardinality:** Many-to-Many (users can have multiple permissions).
-- **Implemented via:** `auth_user_user_permissions` table.
-
-###### `users_customuser` and `users_farmer` / `users_buyer`
-- **Cardinality:** One-to-One (a user can only be a Farmer or Buyer).
-- **Ensured via:** `user_id` foreign key.
-
-
-##### 2.2. Product Relationships
-
-###### `users_customuser` (Farmers) and `products_product`
-- **Cardinality:** One-to-Many (a Farmer can sell multiple products).
-
-###### `products_product` and `products_productimage`
-- **Cardinality:** One-to-Many (a product can have multiple images).
-
-###### `products_product` and `products_lowstocknotification`
-- **Cardinality:** One-to-Many (a product can trigger multiple notifications).
-
-##### 2.3. Order Relationships
-
-###### `users_buyer` and `orders_deliverymethod`
-- **Cardinality:** One-to-One or One-to-Many (a Buyer can have a default delivery method).
-
-
-#### Notable Constraints
-
-##### 3.1. Uniqueness Constraints
-- Users (`username`, `email` in `auth_user` and `users_customuser`).
-- Groups and permissions (unique indices in `auth_group`, `auth_permission`).
-
-##### 3.2. Foreign Key Constraints
-- Used extensively to maintain referential integrity between related tables (e.g., products, farmers, buyers).
-
----
 
 #### **SQLite3 Schema**
 
