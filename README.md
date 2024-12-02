@@ -55,7 +55,10 @@ To better understand how a system works and simplify further planning we have cr
 ---
 ### Class Diagram
 
-<img src="https://github.com/user-attachments/assets/3ba7b878-a7a3-4274-9739-dd755116fbea" width="650">
+<img src="https://github.com/user-attachments/assets/3ba7b878-a7a3-4274-9739-dd755116fbea" width="400">
+
+Figure 1: Class Diagram    
+
 
 This UML diagram outlines the roles and interactions within the Farmer Market System:
 
@@ -72,7 +75,9 @@ These interactions and roles ensure smooth functionality, data management, and c
 ---
 ### Component Diagram
 
-<img src="https://github.com/user-attachments/assets/ab7d396c-f1f6-4c61-a75b-29daec5061c7" width="650">
+<img src="https://github.com/user-attachments/assets/ab7d396c-f1f6-4c61-a75b-29daec5061c7" width="400">
+
+Figure 2: Component Diagram
 
 This Component Diagram provides a high-level view of the Farmer's Market platform and how its various components interact:
 
@@ -103,7 +108,9 @@ This architecture ensures modularity, scalability, and effective interaction bet
 ---
 ### Use Case Diagram
 
-<img src="https://github.com/user-attachments/assets/f4199348-8ea4-47ae-beb5-ea51f5820cd8" width="650">
+<img src="https://github.com/user-attachments/assets/f4199348-8ea4-47ae-beb5-ea51f5820cd8" width="400">
+
+Figure 3: Use Case Diagram    
 
 This use case diagram focuses on enhancing the Farmer's Market System, streamlining interactions and responsibilities between users:
 
@@ -117,7 +124,10 @@ This use case diagram focuses on enhancing the Farmer's Market System, streamlin
 ---
 ### Activity Diagram
 
-<img src="https://github.com/user-attachments/assets/b35c36f3-0d7f-4843-815f-a6ab305f966a" width="650">
+<img src="https://github.com/user-attachments/assets/b35c36f3-0d7f-4843-815f-a6ab305f966a" width="400">
+
+Figure 4: Activity Diagram
+
 
 The activity diagram illustrates the entire process flow in the Farmer's Market System, detailing the tasks performed by each entity:
 
@@ -173,7 +183,7 @@ entity).
 We have defined at least 5 attributes for each entity and defined primary and foreign keys based
 on what type of relationship each entity has with each other:
 
-#### Table 1. Attributes of Each Entity
+#### Table 1: Attributes of Each Entity
 
 | Entity        | Attribute          | Data Type     | Description                                                                             |
 |---------------|--------------------|---------------|-----------------------------------------------------------------------------------------|
@@ -234,7 +244,9 @@ should work. We paid special attention to the implementation of primary and fore
 including constraints. This is the resulting diagram:
 
 
-<img src="https://github.com/user-attachments/assets/d84c3cdd-6589-4c26-ad01-15254f2cae93" width="650">
+<img src="https://github.com/user-attachments/assets/d84c3cdd-6589-4c26-ad01-15254f2cae93" width="400">
+
+Figure 5: ERD
 
 
 The diagrams helped guide the design and implementation of the database and system by providing a clear, visual representation of the relationships, attributes, and structure.
@@ -368,45 +380,60 @@ VALUES
 
 ![image](https://github.com/user-attachments/assets/68c1444a-4c21-4513-9acd-7c511be22fea)
 
+Figure 6: Test Query 1
+
 2. Buyers and Their Delivery Preferences:
 
 ![image](https://github.com/user-attachments/assets/dd3a3366-0a4f-4b37-83eb-68760d9fcaaa)
 
+Figure 7: Test Query 2
 
 3. Products That Are Out of Stock:
 ![image](https://github.com/user-attachments/assets/6c68fc14-473d-4328-a2d8-9294e05b6571)
 
-4. Buyers Who Prefer Cash Payments:
+Figure 8: Test Query 3
+
+5. Buyers Who Prefer Cash Payments:
 
 ![image](https://github.com/user-attachments/assets/b9d4be0d-dec5-46c2-8c70-8bc298cd73d9)
+
+Figure 9: Test Query 4
+
 
 5. Buyers Who Prefer Credit Card Payments:
 ![image](https://github.com/user-attachments/assets/29ef357e-88da-4735-b085-548bfd1fb4d2)
 
+Figure 10: Test Query 5
 
-6. List of All Farmers with Farm Details:
+7. List of All Farmers with Farm Details:
 
 ![image](https://github.com/user-attachments/assets/8bb29d7a-137e-4087-9fbe-03f586e1d7f9)
 
+Figure 11: Test Query 6
 
 7. List of Farms Located in a Specific Area (e.g., 'West Hill')
 
 ![image](https://github.com/user-attachments/assets/dd5bfb1d-216d-4d08-b90f-ad1618898604)
 
+Figure 12: Test Query 7
 
 8. Farmers with More Than One Crop
 
 ![image](https://github.com/user-attachments/assets/1e1aac8f-87f7-4675-83e1-e1e43b3c5d78)
 
+Figure 13: Test Query 8
 
 9. Products and Their Prices Sorted by Price (Descending)
    
 ![image](https://github.com/user-attachments/assets/d6a1ab4a-4849-44ec-b612-7c71d96c3497)
 
+Figure 14: Test Query 9
+
 10. Get Total Quantity of Each Product Available
 
 ![image](https://github.com/user-attachments/assets/e9aafe15-25b2-46d9-9914-e5bc478f9029)
 
+Figure 15: Test Query 10
 
 
 The database testing confirmed a functional design for managing users, farmers, buyers, products, and delivery methods. Queries for inserting, retrieving, and joining data worked well, with accurate results and smooth execution. Optional fields provided flexibility, and the schema handled test scenarios effectively. While the database is ready for use, further optimization and security enhancements would improve performance and scalability.
@@ -423,58 +450,94 @@ Testing API Endpoints
 
 #### Farmer Registration  
 1. **Success**  
-   <img src="https://github.com/user-attachments/assets/3954cc3e-9f1a-45ce-9d32-f57e4e7e08ae" width="400">  
+   <img src="https://github.com/user-attachments/assets/3954cc3e-9f1a-45ce-9d32-f57e4e7e08ae" width="400">
+
+   Figure 16: Farmer Registration Test 1
 
 2. **No Email**  
-   <img src="https://github.com/user-attachments/assets/15a01dda-a50b-47d2-822a-67e38a637955" width="400">  
+   <img src="https://github.com/user-attachments/assets/15a01dda-a50b-47d2-822a-67e38a637955" width="400">
+
+   Figure 17: Farmer Registration Test 2
+
 
 3. **User Already Exists**  
-   <img src="https://github.com/user-attachments/assets/c4caf76a-46c9-4d6f-a31b-a8c0e66f22b6" width="400">  
+   <img src="https://github.com/user-attachments/assets/c4caf76a-46c9-4d6f-a31b-a8c0e66f22b6" width="400">
 
+   Figure 18: Farmer Registration Test 3
+  
+    
+  
 4. **Invalid Soil Type**  
-   <img src="https://github.com/user-attachments/assets/98836330-5499-480e-908e-333267626a49" width="400">  
+   <img src="https://github.com/user-attachments/assets/98836330-5499-480e-908e-333267626a49" width="400">
+
+   Figure 19: Farmer Registration Test 4
 
 5. **Empty Optional Fields**  
-   <img src="https://github.com/user-attachments/assets/a29800c6-37d1-405e-a4e4-15c7988a207f" width="400">  
+   <img src="https://github.com/user-attachments/assets/a29800c6-37d1-405e-a4e4-15c7988a207f" width="400">
+
+   Figure 20: Farmer Registration Test 5
 
 6. **Invalid Email**  
-   <img src="https://github.com/user-attachments/assets/d15d801a-ca4d-473d-9d40-4d856b265bd1" width="400">  
+   <img src="https://github.com/user-attachments/assets/d15d801a-ca4d-473d-9d40-4d856b265bd1" width="400">
+
+   Figure 21: Farmer Registration Test 6
 
 ---
 
 #### Buyer Registration  
 1. **Success**  
-   <img src="https://github.com/user-attachments/assets/2faa3aae-bc36-4f91-ae92-422520421e30" width="400">  
+   <img src="https://github.com/user-attachments/assets/2faa3aae-bc36-4f91-ae92-422520421e30" width="400">
+
+   Figure 22: Buyer Registration Test 1
+    
 
 2. **Empty Email**  
-   <img src="https://github.com/user-attachments/assets/5895fd1d-a08c-44c4-ac95-d28a241dca94" width="400">  
+   <img src="https://github.com/user-attachments/assets/5895fd1d-a08c-44c4-ac95-d28a241dca94" width="400">
+
+   Figure 23: Buyer Registration Test 2
 
 3. **Invalid Email Format**  
-   <img src="https://github.com/user-attachments/assets/cc0912fe-60cc-43b4-9844-d5b88d0a770d" width="400">  
+   <img src="https://github.com/user-attachments/assets/cc0912fe-60cc-43b4-9844-d5b88d0a770d" width="400">
+
+   Figure 24: Buyer Registration Test 3
 
 4. **Missing Username**  
-   <img src="https://github.com/user-attachments/assets/a5d1a6e7-a40b-4795-9673-94428f3281e4" width="400">  
+   <img src="https://github.com/user-attachments/assets/a5d1a6e7-a40b-4795-9673-94428f3281e4" width="400">
+
+   Figure 25: Buyer Registration Test 4
 
 5. **All Fields Missing**  
-   <img src="https://github.com/user-attachments/assets/b8b535c6-4ec8-4a5f-92de-e2d6d854fe70" width="400">  
+   <img src="https://github.com/user-attachments/assets/b8b535c6-4ec8-4a5f-92de-e2d6d854fe70" width="400">
+
+   Figure 26: Buyer Registration Test 5
 
 ---
 
 #### Login  
 1. **Success**  
-   <img src="https://github.com/user-attachments/assets/ba11d8ed-e5c3-474e-bd01-560dad16d542" width="400">  
+   <img src="https://github.com/user-attachments/assets/ba11d8ed-e5c3-474e-bd01-560dad16d542" width="400">
+
+   Figure 27: Login Test 1
 
 2. **Incorrect Password**  
-   <img src="https://github.com/user-attachments/assets/8b7b9d49-31a6-4e82-8103-f3d7ac993c5a" width="400">  
+   <img src="https://github.com/user-attachments/assets/8b7b9d49-31a6-4e82-8103-f3d7ac993c5a" width="400">
+
+   Figure 28: Login Test 2
 
 3. **Non-existing User**  
-   <img src="https://github.com/user-attachments/assets/4173f3a6-c229-485a-907e-d6064da27f03" width="400">  
+   <img src="https://github.com/user-attachments/assets/4173f3a6-c229-485a-907e-d6064da27f03" width="400">
 
+   Figure 29: Login Test 3
+  
 4. **Empty Email**  
-   <img src="https://github.com/user-attachments/assets/f80ff7de-41a3-4fae-bea8-875520e6a8bc" width="400">  
+   <img src="https://github.com/user-attachments/assets/f80ff7de-41a3-4fae-bea8-875520e6a8bc" width="400">
 
-5. **Empty Password**  
-   <img src="https://github.com/user-attachments/assets/62867e9b-23f8-4af0-af68-5fa8a9f12b36" width="400">  
+   Figure 30: Login Test 4
+
+6. **Empty Password**  
+   <img src="https://github.com/user-attachments/assets/62867e9b-23f8-4af0-af68-5fa8a9f12b36" width="400">
+
+   Figure 31: Login Test 5
 
 
 ---
