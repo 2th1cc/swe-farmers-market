@@ -480,8 +480,27 @@ Testing API Endpoints
 ---
 
 ### Farmer Interface
+
+### Login
+
+<img src="https://github.com/user-attachments/assets/76b85a5f-8602-413b-b2f7-2b874d4b1d17" width="200"> <img src="https://github.com/user-attachments/assets/e02aa8e6-c4fb-4f2e-a1ef-ddd6a8929244" width="200"> 
+
+
+
+
+#### Registration
+
+
+<img src="https://github.com/user-attachments/assets/0385ac87-7ac0-47b1-8cfb-2416757252d9" width="200">  <img src="https://github.com/user-attachments/assets/896517e7-58cc-42d9-a84a-8f1f3f0d46d7" width="200">  <img src="https://github.com/user-attachments/assets/3007499c-39c4-407d-881a-fa9458e19224" width="200">  
+#### Product Creation
+<img src="https://github.com/user-attachments/assets/b42e218a-c794-4934-aaf8-d27376f496d0" width="200">  <img src="https://github.com/user-attachments/assets/14d048a5-03f0-4a4f-986f-59e512cf9fc3" width="200">  <img src="https://github.com/user-attachments/assets/f55541fa-5158-445e-b611-c0e80bed7fdd" width="200"> <img src="https://github.com/user-attachments/assets/5634f406-aa30-48e5-bd4c-6ef21c5e00f5" width="200"> 
+#### Product Deletion
+<img src="https://github.com/user-attachments/assets/c5613325-3afb-4067-b5c3-15dbaf43a7d8" width="200"> <img src="https://github.com/user-attachments/assets/aa053d49-4fbe-4827-8136-c67de7711930" width="200">  
+
+
+
 ### Buyer Interface
-### Admin Interface
+
  
   
 
