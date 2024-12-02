@@ -479,29 +479,58 @@ Testing API Endpoints
 
 ---
 
-### Farmer Interface
+
 
 ### Login
+All users log in to the system by providing their email or username and password. Further they are redirected to the home page accroding to their user type.
 
 <img src="https://github.com/user-attachments/assets/76b85a5f-8602-413b-b2f7-2b874d4b1d17" width="200"> <img src="https://github.com/user-attachments/assets/e02aa8e6-c4fb-4f2e-a1ef-ddd6a8929244" width="200"> 
 
-
-
-
+### Farmer Interface
 #### Registration
 
+The farmer provides their email, password, personal information, farm details, and crop types (optional) to complete the registration. Once submitted, the system verifies the data and confirms the successful registration, redirecting the farmer to the dashboard.
 
 <img src="https://github.com/user-attachments/assets/0385ac87-7ac0-47b1-8cfb-2416757252d9" width="200">  <img src="https://github.com/user-attachments/assets/896517e7-58cc-42d9-a84a-8f1f3f0d46d7" width="200">  <img src="https://github.com/user-attachments/assets/3007499c-39c4-407d-881a-fa9458e19224" width="200">  
 #### Product Creation
+
+The farmer enters key details about the product, including name, price, quantity, description, and category, along with optional images. After reviewing the information, the farmer submits the product, which is then added to their product list on the dashboard.
+
 <img src="https://github.com/user-attachments/assets/b42e218a-c794-4934-aaf8-d27376f496d0" width="200">  <img src="https://github.com/user-attachments/assets/14d048a5-03f0-4a4f-986f-59e512cf9fc3" width="200">  <img src="https://github.com/user-attachments/assets/f55541fa-5158-445e-b611-c0e80bed7fdd" width="200"> <img src="https://github.com/user-attachments/assets/5634f406-aa30-48e5-bd4c-6ef21c5e00f5" width="200"> 
 #### Product Deletion
+
+The farmer accesses their product listing and selects the product they wish to delete. After confirming the action, the product is removed from the dashboard and is no longer available for sale.
+
 <img src="https://github.com/user-attachments/assets/c5613325-3afb-4067-b5c3-15dbaf43a7d8" width="200"> <img src="https://github.com/user-attachments/assets/aa053d49-4fbe-4827-8136-c67de7711930" width="200">  
 
 
 
 ### Buyer Interface
 
- 
-  
+#### Registration
+
+The buyer enters their email, password, personal details, phone number, and preferred payment method to complete the registration. Once submitted, the system confirms the buyer's registration and redirects them to the buyer dashboard with special product recommendations.
+
+<img src="https://github.com/user-attachments/assets/6a5e3c32-830b-4a83-8b75-7ad97a6715c1" width="200">  <img src="https://github.com/user-attachments/assets/b2f90b80-cbb6-4be1-9e85-97c067305961" width="200">   <img src="https://github.com/user-attachments/assets/83c3fc03-c81a-4243-8e57-96215e25ffce" width="200"> <img src="https://github.com/user-attachments/assets/0095f01a-3000-4352-993a-ab6b3c75f02e" width="200">
+
+#### Product Details
+
+The buyer can browse and view detailed information about each product, including the name, price, description, and available quantity. The product page also shows images to give the buyer a better idea of what they are purchasing, allowing them to make informed decisions before buying.
+
+<img src="https://github.com/user-attachments/assets/aa98fefd-6ca9-4efb-b592-25f9283397a0" width="200"> <img src="https://github.com/user-attachments/assets/15e1b649-9099-4545-a40a-b4189a6a3382" width="200"> 
+
+
+#### Product Search
+
+The Product Search functionality allows buyers to quickly find products by entering keywords in the search bar at the top of the screen. As the buyer types in the search term (e.g., "organic honey"), the app dynamically displays relevant products, such as organic honey and other similar items, showing their names, prices, and categories.
+
+<img src="https://github.com/user-attachments/assets/58ae66c1-b3dd-4216-89dd-fd90b8c7d81d" width="200"> <img src="https://github.com/user-attachments/assets/74247ea3-cfa8-475a-a2d7-32ef07066174" width="200">
+
+#### Product Filter
+
+The Product Filter enables buyers to narrow down the product list based on specific criteria. Filters can be applied based on categories like fruits, dairy, or honey, and further sorting options allow buyers to organize products by price (low to high or high to low), newest arrivals, or bestsellers, making it easier for them to find the products that meet their preferences.
+
+
+<img src="https://github.com/user-attachments/assets/eb3e3998-8743-4257-88e9-251f3187e727" width="200"> <img src="https://github.com/user-attachments/assets/0f7b81d7-b8bb-4632-8aa8-f80767114643" width="200"> <img src="https://github.com/user-attachments/assets/858556da-5b90-414c-80e7-af33b9610999" width="200"> <img src="https://github.com/user-attachments/assets/9874a580-1f3d-41fa-838b-21b64bbe274b" width="200"> <img src="https://github.com/user-attachments/assets/0e0ad8fd-7c59-4968-8a92-1ddc0f671a21" width="200"> <img src="https://github.com/user-attachments/assets/efa1c8cb-8841-4a09-bdcf-9db6005c6445" width="200">
 
 
