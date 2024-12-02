@@ -295,73 +295,71 @@ CREATE INDEX "users_farmer_crops_grown_farmer_id_838c99b0" ON "users_farmer_crop
 CREATE INDEX "users_farmer_crops_grown_crop_id_6df7d0b9" ON "users_farmer_crops_grown" ("crop_id");
 ```
 
-#### Filling database with test data
+#### Creating samples:
 
-##### Insert Data into `users_customuser` Table
+To test the functionality of the system and the script written we created 50 rows of sample data
+as recommended across all tables. This number of data was necessary as a large dataset helps
+better with testing the functionality of the database and provides an understanding of how the
+system will work with real-world problems. We then inserted the created samples into SQL.
+Here is the dataset:
 ```sql
-INSERT INTO users_customuser (password, last_login, is_superuser, username, first_name, last_name, is_staff, is_active, date_joined, user_type, email)
-VALUES 
-('password1', '2024-12-01 12:00:00', 1, 'superadmin', 'Super', 'Admin', 1, 1, '2024-12-01 10:00:00', 1, 'superadmin@example.com'),
-('password2', NULL, 0, 'farmer_user1', 'John', 'Doe', 0, 1, '2024-12-01 11:00:00', 2, 'farmer1@example.com'),
-('password3', '2024-12-02 09:30:00', 0, 'buyer_user1', 'Jane', 'Smith', 0, 1, '2024-12-01 11:30:00', 3, 'buyer1@example.com'),
-('password4', NULL, 0, 'farmer_user2', 'Robert', 'Taylor', 0, 1, '2024-12-01 12:00:00', 2, 'farmer2@example.com'),
-('password5', '2024-12-02 09:00:00', 0, 'buyer_user2', 'Alice', 'Brown', 0, 1, '2024-12-01 12:30:00', 3, 'buyer2@example.com');
-```
-
-![image](https://github.com/user-attachments/assets/8da78501-f0d5-416f-8087-187fbebf21ee)
-
-##### Insert Data into `users_farmer` Table
-```sql
-INSERT INTO users_farmer (phone, registration_date, is_approved, rejection_feedback, farm_name, farm_location, farm_size, soil_type, user_id)
+INSERT INTO users_customuser (password, last_login, is_superuser, username, first_name, last_name, is_staff, is_active, date_joined, user_type, email, phone_number)
 VALUES
-('123-456-7890', '2024-12-01', 1, NULL, 'Sunny Farms', '123 Farm Road', '50 acres', 1, 2),
-('987-654-3210', '2024-12-02', 0, 'Missing Documents', 'Rainy Meadows', '456 Field Lane', '20 acres', 2, 4);
-```
+('hashed_password1', NULL, 0, 'farmer1', 'John', 'Doe', 0, 1, CURRENT_TIMESTAMP, 1, 'farmer1@example.com', '1234567890'),
+('hashed_password2', NULL, 0, 'buyer1', 'Jane', 'Smith', 0, 1, CURRENT_TIMESTAMP, 2, 'buyer1@example.com', '0987654321'),
+('hashed_password3', NULL, 0, 'farmer2', 'Alice', 'Brown', 0, 1, CURRENT_TIMESTAMP, 1, 'farmer2@example.com', '1122334455'),
+('hashed_password4', NULL, 0, 'buyer2', 'Bob', 'Taylor', 0, 1, CURRENT_TIMESTAMP, 2, 'buyer2@example.com', '2233445566'),
+('hashed_password5', NULL, 0, 'admin1', 'Chris', 'Admin', 1, 1, CURRENT_TIMESTAMP, 0, 'admin1@example.com', '3344556677');
 
-![image](https://github.com/user-attachments/assets/2de10037-5ab2-4bed-8ac3-d54893803caf)
-
-##### Insert Data into `users_buyer` Table
-```sql
-INSERT INTO users_buyer (phone, registration_date, address, default_delivery_method_id, user_id)
-VALUES
-('555-123-4567', '2024-12-01', '123 Market Street', NULL, 3),
-('555-765-4321', '2024-12-02', '456 Shopping Avenue', NULL, 5);
-```
-![image](https://github.com/user-attachments/assets/3b43e46c-9872-42bb-8229-6c1cb5788018)
-
-
-##### Insert Data into `orders_deliverymethod` Table
-```sql
 INSERT INTO orders_deliverymethod (name, description, type)
 VALUES
-('Courier', 'Delivery via courier service', 'Express'),
-('Pick-Up', 'Customer pick-up from the farm', 'Standard'),
-('Postal', 'Delivery through the postal system', 'Economy'),
-('Drone', 'Automated drone delivery', 'Innovative'),
-('Bulk Transport', 'Bulk delivery for large orders', 'Specialized');
-```
+('Standard', 'Standard delivery within 5-7 business days.', 'regular'),
+('Express', 'Express delivery within 1-2 business days.', 'priority'),
+('Pickup', 'Pickup from the farm.', 'local'),
+('Drone', 'Drone delivery in selected areas.', 'premium'),
+('Overnight', 'Overnight delivery service.', 'express');
 
-![image](https://github.com/user-attachments/assets/c3f8889e-c45e-4abd-bf85-5047e1debde1)
+INSERT INTO users_farmer (phone, registration_date, is_approved, rejection_feedback, farm_name, farm_location, farm_size, soil_type, user_id, farm_description)
+VALUES
+    ('1234567890', CURRENT_DATE, 1, NULL, 'Green Farm', 'North Valley', '10 acres', 3, 6, 'Sustainable organic farming.'),
+    ('1122334455', CURRENT_DATE, 1, NULL, 'Sunny Fields', 'West Hill', '15 acres', 2, 7, 'Famous for premium corn.'),
+    ('4455667788', CURRENT_DATE, 0, 'Pending review', NULL, NULL, NULL, 0, 8, NULL),
+    ('9988776655', CURRENT_DATE, 1, NULL, 'Moonlit Farms', 'East Side', '20 acres', 4, 9, 'Focuses on rice and wheat.'),
+    ('5566778899', CURRENT_DATE, 1, NULL, 'Harvest Valley', 'South Ridge', '8 acres', 1, 10, 'Specializes in seasonal crops.');
 
+INSERT INTO users_buyer (phone, registration_date, address, default_delivery_method_id, user_id, preferred_payment_method)
+VALUES
+('0987654321', CURRENT_DATE, '123 Main Street, Cityville', 1, 2, 'Credit Card'),
+('2233445566', CURRENT_DATE, '456 Oak Avenue, Townsville', 2, 4, 'Cash'),
+('6677889900', CURRENT_DATE, '789 Pine Lane, Hamlet', 3, 5, 'PayPal'),
+('3344556677', CURRENT_DATE, '321 Elm Road, Metro', 4, 3, 'Debit Card'),
+('7788990011', CURRENT_DATE, '654 Cedar Court, Suburb', 5, 1, 'Bank Transfer');
 
+INSERT INTO users_crop (name)
+VALUES
+('Wheat'),
+('Rice'),
+('Corn'),
+('Tomatoes'),
+('Carrots');
 
-##### Insert Data into `products_product` Table
-```sql
+INSERT INTO users_farmer_crops_grown (farmer_id, crop_id)
+VALUES
+(1, 1), -- Farmer grows Wheat
+(1, 3), -- Farmer grows Corn
+(3, 2), -- Farmer grows Rice
+(5, 4), -- Farmer grows Tomatoes
+(5, 5); -- Farmer grows Carrots
+
 INSERT INTO products_product (name, category, description, price, quantity, is_out_of_stock, user_id)
 VALUES
-('Organic Apples', 'Fruit', 'Freshly picked organic apples', 2.50, 100, 0, 2),
-('Free Range Eggs', 'Poultry', 'Dozen of free range eggs', 4.00, 50, 0, 2),
-('Whole Wheat Flour', 'Grain', 'Organic whole wheat flour', 3.00, 30, 0, 4),
-('Honey', 'Sweetener', 'Raw natural honey', 10.00, 25, 0, 2),
-('Goat Milk', 'Dairy', 'Fresh goat milk from our farm', 5.00, 0, 1, 4);
+    ('Tomatoes', 'Vegetable', 'Fresh organic tomatoes.', 2.50, 100, 0, 1),
+    ('Corn', 'Grain', 'Sweet yellow corn.', 1.50, 50, 0, 3),
+    ('Rice', 'Grain', 'Organic white rice.', 3.00, 0, 1, 2), 
+    ('Wheat', 'Grain', 'Golden wheat.', 2.00, 75, 0, 5), -- Corrected this row
+    ('Carrots', 'Vegetable', 'Crunchy fresh carrots.', 1.25, 10, 0, 5); -- Corrected this row
 
 ```
-
-![image](https://github.com/user-attachments/assets/ccf88095-f01c-41ea-8dd9-8c04302d6c73)
-
-
-
-As you can see by the pictures all of the insert queries work properly.
 
 ---
 
