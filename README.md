@@ -345,124 +345,68 @@ VALUES
 
 INSERT INTO users_farmer_crops_grown (farmer_id, crop_id)
 VALUES
-(1, 1), -- Farmer grows Wheat
-(1, 3), -- Farmer grows Corn
-(3, 2), -- Farmer grows Rice
-(5, 4), -- Farmer grows Tomatoes
-(5, 5); -- Farmer grows Carrots
+(1, 1),
+(1, 3),
+(3, 2), 
+(5, 4), 
+(5, 5); 
 
 INSERT INTO products_product (name, category, description, price, quantity, is_out_of_stock, user_id)
 VALUES
     ('Tomatoes', 'Vegetable', 'Fresh organic tomatoes.', 2.50, 100, 0, 1),
     ('Corn', 'Grain', 'Sweet yellow corn.', 1.50, 50, 0, 3),
     ('Rice', 'Grain', 'Organic white rice.', 3.00, 0, 1, 2), 
-    ('Wheat', 'Grain', 'Golden wheat.', 2.00, 75, 0, 5), -- Corrected this row
-    ('Carrots', 'Vegetable', 'Crunchy fresh carrots.', 1.25, 10, 0, 5); -- Corrected this row
+    ('Wheat', 'Grain', 'Golden wheat.', 2.00, 75, 0, 5), 
+    ('Carrots', 'Vegetable', 'Crunchy fresh carrots.', 1.25, 10, 0, 5); 
 
 ```
 
 ---
 
 #### Queries to Test the Schema
-1. Retrieve all farmers and their farm details:
-```sql
-SELECT u.username, f.farm_name, f.farm_location, f.farm_size
-FROM users_farmer f
-JOIN users_customuser u ON f.user_id = u.id;
-```
-![image](https://github.com/user-attachments/assets/447c8995-135a-4459-bb83-5c8bb4f4277f)
+1. Get Farmers with Their Crops:
 
-2. Retrieve all products and their stock status:
-```sql
-SELECT p.name, p.category, p.price, p.quantity, p.is_out_of_stock
-FROM products_product p;
-```
-![image](https://github.com/user-attachments/assets/2aff0827-892d-4099-9df2-930a6314e1d7)
+![image](https://github.com/user-attachments/assets/68c1444a-4c21-4513-9acd-7c511be22fea)
 
-3. Select Rows with a Condition
-```sql
-SELECT * FROM users_customuser WHERE is_active = 1;
-```
-![image](https://github.com/user-attachments/assets/9821f60c-474c-48e6-8788-c25282140682)
+2. Buyers and Their Delivery Preferences:
+
+![image](https://github.com/user-attachments/assets/dd3a3366-0a4f-4b37-83eb-68760d9fcaaa)
 
 
-4. Join Tables
-```sql
-SELECT 
-    u.username, u.email, f.farm_name, f.farm_location 
-FROM 
-    users_customuser u
-JOIN 
-    users_farmer f ON u.id = f.user_id;
-```
-![image](https://github.com/user-attachments/assets/ee418526-a972-43c8-955c-8fb46c2691d9)
+3. Products That Are Out of Stock:
+![image](https://github.com/user-attachments/assets/6c68fc14-473d-4328-a2d8-9294e05b6571)
+
+4. Buyers Who Prefer Cash Payments:
+
+![image](https://github.com/user-attachments/assets/b9d4be0d-dec5-46c2-8c70-8bc298cd73d9)
+
+5. Buyers Who Prefer Credit Card Payments:
+![image](https://github.com/user-attachments/assets/29ef357e-88da-4735-b085-548bfd1fb4d2)
 
 
-5. Aggregate Functions
-```sql
-SELECT COUNT(*) AS farmer_count FROM users_farmer;
-```
-![image](https://github.com/user-attachments/assets/c4ee00d2-cef4-4fd7-93f8-158f058c7a9b)
+6. List of All Farmers with Farm Details:
 
-6. Group By with Aggregates
-```sql
-SELECT 
-    type, COUNT(*) AS method_count 
-FROM 
-    orders_deliverymethod 
-GROUP BY 
-    type;
+![image](https://github.com/user-attachments/assets/8bb29d7a-137e-4087-9fbe-03f586e1d7f9)
 
-```
-![image](https://github.com/user-attachments/assets/21f1b4ec-dd50-4de6-9381-f0d6c4856104)
 
-7. Order By
-```sql
-SELECT 
-    name, price 
-FROM 
-    products_product 
-ORDER BY 
-    price DESC;
-```
-![image](https://github.com/user-attachments/assets/1a018a50-0b08-4b12-b0c5-96169c2e55b4)
+7. List of Farms Located in a Specific Area (e.g., 'West Hill')
 
-8. Inner Join Across Multiple Tables
-```sql
-SELECT 
-    p.name AS product_name, p.price, f.farm_name, f.farm_location 
-FROM 
-    products_product p
-JOIN 
-    users_farmer f ON p.user_id = f.user_id;
+![image](https://github.com/user-attachments/assets/dd5bfb1d-216d-4d08-b90f-ad1618898604)
 
-```
-![image](https://github.com/user-attachments/assets/8a13cd51-195e-4d17-8a02-6d8690195924)
 
-9. Conditional Aggregates
-```sql
-SELECT 
-    SUM(CASE WHEN is_out_of_stock = 0 THEN 1 ELSE 0 END) AS in_stock,
-    SUM(CASE WHEN is_out_of_stock = 1 THEN 1 ELSE 0 END) AS out_of_stock
-FROM 
-    products_product;
+8. Farmers with More Than One Crop
 
-```
-![image](https://github.com/user-attachments/assets/766ec135-e64f-4455-a959-9e93c6330993)
+![image](https://github.com/user-attachments/assets/1e1aac8f-87f7-4675-83e1-e1e43b3c5d78)
 
-10. Union
-```sql
-SELECT 
-    phone 
-FROM 
-    users_farmer
-UNION
-SELECT 
-    phone 
-FROM 
-    users_buyer;
-```
-![image](https://github.com/user-attachments/assets/e4f77a83-1b44-469d-8d57-b1ab3af6184a)
+
+9. Products and Their Prices Sorted by Price (Descending)
+   
+![image](https://github.com/user-attachments/assets/d6a1ab4a-4849-44ec-b612-7c71d96c3497)
+
+10. Get Total Quantity of Each Product Available
+
+![image](https://github.com/user-attachments/assets/e9aafe15-25b2-46d9-9914-e5bc478f9029)
+
 
 
 The database testing confirmed a functional design for managing users, farmers, buyers, products, and delivery methods. Queries for inserting, retrieving, and joining data worked well, with accurate results and smooth execution. Optional fields provided flexibility, and the schema handled test scenarios effectively. While the database is ready for use, further optimization and security enhancements would improve performance and scalability.
